@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vita AI Assistant — Project Detail</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                    },
+                    colors: {
+                        darkBg: '#050505',
+                        darkCard: '#111113',
+                        darkCardHover: '#18181c',
+                        borderMuted: '#222226',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 8s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-15px) rotate(3deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+
+    <style>
+        body {
+            background: #050505;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+
+
+        .heading-font {
+            font-family: 'Syne', sans-serif;
+        }
+
+
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+
+
+        ::-webkit-scrollbar-thumb {
+            background: #292929;
+            border-radius: 10px;
+        }
+
+
+        .doc-section {
+            scroll-margin-top: 120px;
+        }
+
+
+        .index-link.active {
+            color: white;
+        }
+
+
+        .index-link.active span {
+            width: 28px;
+            background: white;
+        }
+    </style>
+
+</head>
+
+
+<body class="bg-darkBg text-white antialiased">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-darkBg/70 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#home" class="text-2xl font-bold tracking-tight text-white flex items-center gap-1 font-display">
+                æmi<span class="text-purple-400">.dev</span>
+            </a>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center space-x-10 text-sm font-medium text-gray-300">
+                <a href="#home" class="hover:text-white transition-colors">Home</a>
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                 <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                <a href="#about-stack" class="hover:text-white transition-colors">Tech Stack</a>
+               
+                
+            </nav>
+
+            <!-- Action Button -->
+            <div class="hidden md:block">
+                <button onclick="openModal('contact')" class="px-6 py-2.5 rounded-full bg-white text-black font-medium text-sm hover:bg-gray-200 transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-white/10">
+                    Contactame
+                </button>
+            </div>
+
+            <!-- Mobile Hamburger Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-gray-300 hover:text-white text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden bg-darkBg/95 border-b border-white/10 px-6 py-6 flex flex-col space-y-4 text-center">
+            <a href="#home" class="mobile-link text-gray-300 hover:text-white py-2">Home</a>
+            <a href="#about" class="mobile-link text-gray-300 hover:text-white py-2">About</a>
+            <a href="#projects" class="mobile-link text-gray-300 hover:text-white py-2">Projects</a>
+            <a href="#about-stack" class="mobile-link text-gray-300 hover:text-white py-2">Tech Stack</a>
+            <button onclick="openModal('contact')" class="w-full py-3 rounded-full bg-white text-black font-semibold text-sm mt-2">
+                Contactame
+            </button>
+        </div>
+    </header>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <main>
+
+
+        <section class="relative
+                   pt-40 pb-24
+                   px-6
+                   border-b border-white/5
+                   overflow-hidden">
+
+
+            <!-- Glow -->
+
+            <div class="absolute
+                       -top-40
+                       right-[-10%]
+                       w-[500px]
+                       h-[500px]
+                       rounded-full
+                       bg-purple-600/10
+                       blur-[120px]
+                       pointer-events-none">
+            </div>
+
+
+            <div class="max-w-7xl mx-auto">
+
+
+                <!-- Breadcrumb -->
+
+                <div class="flex items-center gap-3
+                           text-[10px]
+                           font-mono
+                           tracking-[0.15em]
+                           text-gray-500
+                           mb-10">
+
+                    <a href="proyectos.html" class="hover:text-white transition-colors">
+
+                        PROJECTS
+
+                    </a>
+
+                    <span>/</span>
+
+                    <span class="text-gray-300">
+
+                        PROJECT 04
+
+                    </span>
+
+                </div>
+
+
+
+                <div class="max-w-8xl">
+
+
+                    <!-- Category -->
+
+                    <div class="flex items-center gap-3
+                               text-purple-400
+                               text-[10px]
+                               font-mono
+                               tracking-[0.15em]
+                               mb-5">
+
+                        <span class="w-1.5 h-1.5
+                                   rounded-full
+                                   bg-purple-400
+                                   shadow-[0_0_15px_rgba(168,85,247,.8)]">
+                        </span>
+
+                        ARTIFICIAL INTELLIGENCE · BACKEND
+
+                    </div>
+
+
+
+                    <!-- Title -->
+
+                    <h1 class="heading-font text-5xl md:text-6xl font-bold uppercase tracking-tight text-white">
+
+                        VITA
+                        <br>
+
+                        <span
+                            class="heading-font
+                                   text-3xl md:text-4xl
+                                   text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-indigo-300">
+                            ASISTENTE INTELIGENTE CON RAG Y AGENTES IA</span>
+
+                    </h1>
+
+
+
+                    <!-- Description -->
+
+                    <p class="mt-10
+                               max-w-2xl
+                               text-sm md:text-base
+                               text-gray-400
+                               leading-7
+                               font-light">
+
+                        AI assistant designed to provide intelligent
+                        responses using retrieval augmented generation,
+                        semantic search and an agent-based workflow.
+
+                    </p>
+
+
+
+                    <!-- Technologies -->
+
+                    <div class="flex flex-wrap
+                               gap-2
+                               mt-8">
+
+
+                        <span class="px-3 py-1.5
+                                   rounded-full
+                                   border border-white/10
+                                   bg-white/[0.03]
+                                   text-[10px]
+                                   font-mono
+                                   text-gray-300">
+
+                            Python
+
+                        </span>
+
+
+                        <span class="px-3 py-1.5
+                                   rounded-full
+                                   border border-white/10
+                                   bg-white/[0.03]
+                                   text-[10px]
+                                   font-mono
+                                   text-gray-300">
+
+                            LangChain
+
+                        </span>
+
+
+                        <span class="px-3 py-1.5
+                                   rounded-full
+                                   border border-white/10
+                                   bg-white/[0.03]
+                                   text-[10px]
+                                   font-mono
+                                   text-gray-300">
+
+                            LangGraph
+
+                        </span>
+
+
+                        <span class="px-3 py-1.5
+                                   rounded-full
+                                   border border-white/10
+                                   bg-white/[0.03]
+                                   text-[10px]
+                                   font-mono
+                                   text-gray-300">
+
+                            RAG
+
+                        </span>
+
+
+                        <span class="px-3 py-1.5
+                                   rounded-full
+                                   border border-white/10
+                                   bg-white/[0.03]
+                                   text-[10px]
+                                   font-mono
+                                   text-gray-300">
+
+                            Gemini
+
+                        </span>
+
+
+                        <span class="px-3 py-1.5
+                                   rounded-full
+                                   border border-white/10
+                                   bg-white/[0.03]
+                                   text-[10px]
+                                   font-mono
+                                   text-gray-300">
+
+                            FAISS
+
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             DOCUMENTATION
+        ====================================================== -->
+
+        <section class="px-6 py-20">
+
+
+            <div class="max-w-7xl mx-auto
+                       grid grid-cols-1
+                       lg:grid-cols-[240px_minmax(0,1fr)]
+                       gap-16">
+
+
+                <!-- =================================================
+                     INDEX
+                ================================================== -->
+
+                <aside class="lg:sticky
+                           lg:top-32
+                           lg:self-start">
+
+
+                    <div class="text-[10px]
+                               font-mono
+                               tracking-[0.15em]
+                               text-gray-500
+                               mb-6">
+
+                        DOCUMENTATION
+
+                    </div>
+
+
+                    <nav id="projectIndex" class="space-y-4">
+
+
+                        <a href="#overview" data-section="overview" class="index-link
+                                   flex items-center gap-3
+                                   text-xs
+                                   text-gray-500
+                                   hover:text-white
+                                   transition-colors">
+
+                            <span class="block
+                                       w-4 h-px
+                                       bg-gray-700
+                                       transition-all">
+                            </span>
+
+                            01 — Overview
+
+                        </a>
+
+
+                        <a href="#problem" data-section="problem" class="index-link
+                                   flex items-center gap-3
+                                   text-xs
+                                   text-gray-500
+                                   hover:text-white
+                                   transition-colors">
+
+                            <span class="block
+                                       w-4 h-px
+                                       bg-gray-700
+                                       transition-all">
+                            </span>
+
+                            02 — Problem
+
+                        </a>
+
+
+                        <a href="#solution" data-section="solution" class="index-link
+                                   flex items-center gap-3
+                                   text-xs
+                                   text-gray-500
+                                   hover:text-white
+                                   transition-colors">
+
+                            <span class="block
+                                       w-4 h-px
+                                       bg-gray-700
+                                       transition-all">
+                            </span>
+
+                            03 — Solution
+
+                        </a>
+
+
+                        <a href="#architecture" data-section="architecture" class="index-link
+                                   flex items-center gap-3
+                                   text-xs
+                                   text-gray-500
+                                   hover:text-white
+                                   transition-colors">
+
+                            <span class="block
+                                       w-4 h-px
+                                       bg-gray-700
+                                       transition-all">
+                            </span>
+
+                            04 — Architecture
+
+                        </a>
+
+
+                        <a href="#features" data-section="features" class="index-link
+                                   flex items-center gap-3
+                                   text-xs
+                                   text-gray-500
+                                   hover:text-white
+                                   transition-colors">
+
+                            <span class="block
+                                       w-4 h-px
+                                       bg-gray-700
+                                       transition-all">
+                            </span>
+
+                            05 — Features
+
+                        </a>
+
+
+                        <a href="#stack" data-section="stack" class="index-link
+                                   flex items-center gap-3
+                                   text-xs
+                                   text-gray-500
+                                   hover:text-white
+                                   transition-colors">
+
+                            <span class="block
+                                       w-4 h-px
+                                       bg-gray-700
+                                       transition-all">
+                            </span>
+
+                            06 — Tech Stack
+
+                        </a>
+
+
+                        <a href="#challenges" data-section="challenges" class="index-link
+                                   flex items-center gap-3
+                                   text-xs
+                                   text-gray-500
+                                   hover:text-white
+                                   transition-colors">
+
+                            <span class="block
+                                       w-4 h-px
+                                       bg-gray-700
+                                       transition-all">
+                            </span>
+
+                            07 — Challenges
+
+                        </a>
+
+
+                        <a href="#results" data-section="results" class="index-link
+                                   flex items-center gap-3
+                                   text-xs
+                                   text-gray-500
+                                   hover:text-white
+                                   transition-colors">
+
+                            <span class="block
+                                       w-4 h-px
+                                       bg-gray-700
+                                       transition-all">
+                            </span>
+
+                            08 — Results
+
+                        </a>
+
+
+                    </nav>
+
+                </aside>
+
+
+
+                <!-- =================================================
+                     CONTENT
+                ================================================== -->
+
+                <article class="max-w-4xl">
+
+
+                    <!-- ==============================
+                         OVERVIEW
+                    =============================== -->
+
+                    <section id="overview" class="doc-section pb-24">
+
+                        <div class="text-[10px]
+                                   font-mono
+                                   tracking-[0.15em]
+                                   text-purple-400
+                                   mb-5">
+
+                            01 / OVERVIEW
+
+                        </div>
+
+
+                        <h2 class="heading-font
+                                   text-3xl md:text-4xl
+                                   font-bold
+                                   uppercase
+                                   mb-7">
+
+                            Project Overview
+
+                        </h2>
+
+
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8
+                                   font-light">
+
+                            Vita is an AI assistant created to
+                            provide contextual responses based on
+                            a controlled collection of documents.
+                            The system combines document retrieval,
+                            semantic search and an agent workflow
+                            to determine how each user request
+                            should be processed.
+
+                        </p>
+
+
+                        <!-- Highlight -->
+
+                        <div class="mt-10
+                                   p-6 md:p-8
+                                   rounded-3xl
+                                   border border-white/10
+                                   bg-white/[0.025]">
+
+                            <div class="text-[10px]
+                                       font-mono
+                                       text-gray-500
+                                       mb-3">
+
+                                PROJECT TYPE
+
+                            </div>
+
+                            <div class="text-lg
+                                       font-medium">
+
+                                AI Assistant · RAG · Agents
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- ==============================
+                         PROBLEM
+                    =============================== -->
+
+                    <section id="problem" class="doc-section pb-24">
+
+
+                        <div class="text-[10px]
+                                   font-mono
+                                   tracking-[0.15em]
+                                   text-purple-400
+                                   mb-5">
+
+                            02 / PROBLEM
+
+                        </div>
+
+
+                        <h2 class="heading-font
+                                   text-3xl md:text-4xl
+                                   font-bold
+                                   uppercase
+                                   mb-7">
+
+                            The Problem
+
+                        </h2>
+
+
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8">
+
+                            Traditional question-and-answer
+                            interfaces are limited when the
+                            information required to answer a
+                            request is contained inside a
+                            collection of private documents.
+
+                        </p>
+
+
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8
+                                   mt-5">
+
+                            The objective was to create a system
+                            capable of retrieving relevant
+                            information and determining the
+                            appropriate action based on the
+                            user's request.
+
+                        </p>
+
+                    </section>
+
+
+
+                    <!-- ==============================
+                         SOLUTION
+                    =============================== -->
+
+                    <section id="solution" class="doc-section pb-24">
+
+
+                        <div class="text-[10px]
+                                   font-mono
+                                   tracking-[0.15em]
+                                   text-purple-400
+                                   mb-5">
+
+                            03 / SOLUTION
+
+                        </div>
+
+
+                        <h2 class="heading-font
+                                   text-3xl md:text-4xl
+                                   font-bold
+                                   uppercase
+                                   mb-7">
+
+                            The Solution
+
+                        </h2>
+
+
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8">
+
+                            The solution uses a Retrieval Augmented
+                            Generation pipeline combined with
+                            LangGraph to orchestrate different
+                            processing paths.
+
+                        </p>
+
+
+                        <div class="grid
+                                   grid-cols-1
+                                   md:grid-cols-3
+                                   gap-4
+                                   mt-10">
+
+
+                            <div class="rounded-2xl
+                                       border border-white/10
+                                       bg-white/[0.025]
+                                       p-6">
+
+                                <div class="text-purple-400
+                                           font-mono
+                                           text-xs
+                                           mb-4">
+
+                                    01
+
+                                </div>
+
+                                <h3 class="font-semibold
+                                           text-sm
+                                           mb-2">
+
+                                    Retrieval
+
+                                </h3>
+
+                                <p class="text-xs
+                                           text-gray-500
+                                           leading-6">
+
+                                    Relevant information is
+                                    retrieved from the
+                                    document knowledge base.
+
+                                </p>
+
+                            </div>
+
+
+                            <div class="rounded-2xl
+                                       border border-white/10
+                                       bg-white/[0.025]
+                                       p-6">
+
+                                <div class="text-purple-400
+                                           font-mono
+                                           text-xs
+                                           mb-4">
+
+                                    02
+
+                                </div>
+
+                                <h3 class="font-semibold
+                                           text-sm
+                                           mb-2">
+
+                                    Reasoning
+
+                                </h3>
+
+                                <p class="text-xs
+                                           text-gray-500
+                                           leading-6">
+
+                                    The agent determines the
+                                    appropriate workflow.
+
+                                </p>
+
+                            </div>
+
+
+                            <div class="rounded-2xl
+                                       border border-white/10
+                                       bg-white/[0.025]
+                                       p-6">
+
+                                <div class="text-purple-400
+                                           font-mono
+                                           text-xs
+                                           mb-4">
+
+                                    03
+
+                                </div>
+
+                                <h3 class="font-semibold
+                                           text-sm
+                                           mb-2">
+
+                                    Response
+
+                                </h3>
+
+                                <p class="text-xs
+                                           text-gray-500
+                                           leading-6">
+
+                                    The system generates the
+                                    final contextual response.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- ==============================
+                         ARCHITECTURE
+                    =============================== -->
+
+                    <section id="architecture" class="doc-section pb-24">
+
+
+                        <div class="text-[10px]
+                                   font-mono
+                                   tracking-[0.15em]
+                                   text-purple-400
+                                   mb-5">
+
+                            04 / ARCHITECTURE
+
+                        </div>
+
+
+                        <h2 class="heading-font
+                                   text-3xl md:text-4xl
+                                   font-bold
+                                   uppercase
+                                   mb-7">
+
+                            Architecture
+
+                        </h2>
+
+
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8">
+
+                            The application is organized into
+                            independent components responsible
+                            for document processing, retrieval,
+                            generation and workflow orchestration.
+
+                        </p>
+
+
+                        <!-- Architecture visual -->
+
+                        <div class="mt-10
+                                   rounded-3xl
+                                   border border-white/10
+                                   bg-[#0b0b0d]
+                                   p-6 md:p-10
+                                   overflow-x-auto">
+
+
+                            <div class="min-w-[600px]
+                                       flex items-center
+                                       justify-between
+                                       gap-5">
+
+
+                                <div class="w-32 h-20
+                                           rounded-2xl
+                                           border border-white/10
+                                           bg-white/[0.03]
+                                           flex flex-col
+                                           items-center
+                                           justify-center">
+
+                                    <i class="fa-regular
+                                               fa-file-lines
+                                               text-purple-400
+                                               mb-2">
+                                    </i>
+
+                                    <span class="text-[10px]
+                                               font-mono">
+
+                                        DOCUMENTS
+
+                                    </span>
+
+                                </div>
+
+
+                                <i class="fa-solid
+                                           fa-arrow-right
+                                           text-gray-600">
+                                </i>
+
+
+                                <div class="w-32 h-20
+                                           rounded-2xl
+                                           border border-white/10
+                                           bg-white/[0.03]
+                                           flex flex-col
+                                           items-center
+                                           justify-center">
+
+                                    <i class="fa-solid
+                                               fa-vector-square
+                                               text-purple-400
+                                               mb-2">
+                                    </i>
+
+                                    <span class="text-[10px]
+                                               font-mono">
+
+                                        EMBEDDINGS
+
+                                    </span>
+
+                                </div>
+
+
+                                <i class="fa-solid
+                                           fa-arrow-right
+                                           text-gray-600">
+                                </i>
+
+
+                                <div class="w-32 h-20
+                                           rounded-2xl
+                                           border border-white/10
+                                           bg-white/[0.03]
+                                           flex flex-col
+                                           items-center
+                                           justify-center">
+
+                                    <i class="fa-solid
+                                               fa-database
+                                               text-purple-400
+                                               mb-2">
+                                    </i>
+
+                                    <span class="text-[10px]
+                                               font-mono">
+
+                                        VECTOR STORE
+
+                                    </span>
+
+                                </div>
+
+
+                                <i class="fa-solid
+                                           fa-arrow-right
+                                           text-gray-600">
+                                </i>
+
+
+                                <div class="w-32 h-20
+                                           rounded-2xl
+                                           border border-white/10
+                                           bg-white/[0.03]
+                                           flex flex-col
+                                           items-center
+                                           justify-center">
+
+                                    <i class="fa-solid
+                                               fa-robot
+                                               text-purple-400
+                                               mb-2">
+                                    </i>
+
+                                    <span class="text-[10px]
+                                               font-mono">
+
+                                        AGENT
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- ==============================
+                         FEATURES
+                    =============================== -->
+
+                    <section id="features" class="doc-section pb-24">
+
+
+                        <div class="text-[10px]
+                                   font-mono
+                                   tracking-[0.15em]
+                                   text-purple-400
+                                   mb-5">
+
+                            05 / FEATURES
+
+                        </div>
+
+
+                        <h2 class="heading-font
+                                   text-3xl md:text-4xl
+                                   font-bold
+                                   uppercase
+                                   mb-8">
+
+                            Key Features
+
+                        </h2>
+
+
+                        <div class="space-y-3">
+
+
+                            <div class="flex gap-5
+                                       p-5
+                                       rounded-2xl
+                                       border border-white/10
+                                       bg-white/[0.02]">
+
+                                <span class="text-purple-400
+                                           font-mono text-xs">
+
+                                    01
+
+                                </span>
+
+                                <div>
+
+                                    <h3 class="text-sm
+                                               font-medium">
+
+                                        Retrieval Augmented Generation
+
+                                    </h3>
+
+                                    <p class="text-xs
+                                               text-gray-500
+                                               mt-2
+                                               leading-6">
+
+                                        Retrieves relevant
+                                        information before
+                                        generating a response.
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="flex gap-5
+                                       p-5
+                                       rounded-2xl
+                                       border border-white/10
+                                       bg-white/[0.02]">
+
+                                <span class="text-purple-400
+                                           font-mono text-xs">
+
+                                    02
+
+                                </span>
+
+                                <div>
+
+                                    <h3 class="text-sm
+                                               font-medium">
+
+                                        Agent Workflow
+
+                                    </h3>
+
+                                    <p class="text-xs
+                                               text-gray-500
+                                               mt-2
+                                               leading-6">
+
+                                        LangGraph coordinates
+                                        different processing
+                                        paths.
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="flex gap-5
+                                       p-5
+                                       rounded-2xl
+                                       border border-white/10
+                                       bg-white/[0.02]">
+
+                                <span class="text-purple-400
+                                           font-mono text-xs">
+
+                                    03
+
+                                </span>
+
+                                <div>
+
+                                    <h3 class="text-sm
+                                               font-medium">
+
+                                        Semantic Search
+
+                                    </h3>
+
+                                    <p class="text-xs
+                                               text-gray-500
+                                               mt-2
+                                               leading-6">
+
+                                        Uses vector representations
+                                        to identify semantically
+                                        relevant information.
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- ==============================
+                         STACK
+                    =============================== -->
+
+                    <section id="stack" class="doc-section pb-24">
+
+
+                        <div class="text-[10px]
+                                   font-mono
+                                   tracking-[0.15em]
+                                   text-purple-400
+                                   mb-5">
+
+                            06 / TECH STACK
+
+                        </div>
+
+
+                        <h2 class="heading-font
+                                   text-3xl md:text-4xl
+                                   font-bold
+                                   uppercase
+                                   mb-8">
+
+                            Technology Stack
+
+                        </h2>
+
+
+                        <div class="grid
+                                   grid-cols-2
+                                   md:grid-cols-3
+                                   gap-3">
+
+
+                            <div class="p-5 rounded-2xl border border-white/10 bg-white/[0.02]">
+
+                                <span class="text-xs text-gray-400">
+                                    Language
+                                </span>
+
+                                <div class="mt-2 font-medium">
+                                    Python
+                                </div>
+
+                            </div>
+
+
+                            <div class="p-5 rounded-2xl border border-white/10 bg-white/[0.02]">
+
+                                <span class="text-xs text-gray-400">
+                                    Framework
+                                </span>
+
+                                <div class="mt-2 font-medium">
+                                    LangChain
+                                </div>
+
+                            </div>
+
+
+                            <div class="p-5 rounded-2xl border border-white/10 bg-white/[0.02]">
+
+                                <span class="text-xs text-gray-400">
+                                    Orchestration
+                                </span>
+
+                                <div class="mt-2 font-medium">
+                                    LangGraph
+                                </div>
+
+                            </div>
+
+
+                            <div class="p-5 rounded-2xl border border-white/10 bg-white/[0.02]">
+
+                                <span class="text-xs text-gray-400">
+                                    Retrieval
+                                </span>
+
+                                <div class="mt-2 font-medium">
+                                    FAISS
+                                </div>
+
+                            </div>
+
+
+                            <div class="p-5 rounded-2xl border border-white/10 bg-white/[0.02]">
+
+                                <span class="text-xs text-gray-400">
+                                    Model
+                                </span>
+
+                                <div class="mt-2 font-medium">
+                                    Gemini
+                                </div>
+
+                            </div>
+
+
+                            <div class="p-5 rounded-2xl border border-white/10 bg-white/[0.02]">
+
+                                <span class="text-xs text-gray-400">
+                                    Pattern
+                                </span>
+
+                                <div class="mt-2 font-medium">
+                                    RAG
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- ==============================
+                         CHALLENGES
+                    =============================== -->
+
+                    <section id="challenges" class="doc-section pb-24">
+
+
+                        <div class="text-[10px]
+                                   font-mono
+                                   tracking-[0.15em]
+                                   text-purple-400
+                                   mb-5">
+
+                            07 / CHALLENGES
+
+                        </div>
+
+
+                        <h2 class="heading-font
+                                   text-3xl md:text-4xl
+                                   font-bold
+                                   uppercase
+                                   mb-7">
+
+                            Challenges
+
+                        </h2>
+
+
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8">
+
+                            One of the main challenges was designing
+                            the retrieval pipeline so that the
+                            generated responses remained grounded
+                            in the available documentation.
+
+                        </p>
+
+
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8
+                                   mt-5">
+
+                            Another challenge involved coordinating
+                            the different agent states while
+                            maintaining a predictable workflow.
+
+                        </p>
+
+                    </section>
+
+
+
+                    <!-- ==============================
+                         RESULTS
+                    =============================== -->
+
+                    <section id="results" class="doc-section pb-10">
+
+
+                        <div class="text-[10px]
+                                   font-mono
+                                   tracking-[0.15em]
+                                   text-purple-400
+                                   mb-5">
+
+                            08 / RESULTS
+
+                        </div>
+
+
+                        <h2 class="heading-font
+                                   text-3xl md:text-4xl
+                                   font-bold
+                                   uppercase
+                                   mb-7">
+
+                            Results
+
+                        </h2>
+
+
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8">
+
+                            The project resulted in a modular AI
+                            assistant capable of combining
+                            document retrieval with agent-based
+                            decision making.
+
+                        </p>
+
+
+                        <!-- Final card -->
+
+                        <div class="mt-10
+                                   p-8 md:p-10
+                                   rounded-3xl
+                                   border border-purple-500/20
+                                   bg-gradient-to-br
+                                   from-purple-500/10
+                                   to-transparent">
+
+                            <div class="text-xs
+                                       font-mono
+                                       text-purple-300">
+
+                                PROJECT OUTCOME
+
+                            </div>
+
+
+                            <div class="heading-font
+                                       text-2xl md:text-3xl
+                                       font-bold
+                                       mt-4">
+
+                                RAG + AGENTS
+
+                            </div>
+
+
+                            <p class="text-xs
+                                       text-gray-400
+                                       mt-3
+                                       leading-6">
+
+                                A modular architecture combining
+                                retrieval, semantic search and
+                                agent orchestration.
+
+                            </p>
+
+                        </div>
+
+                    </section>
+
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="py-12 px-6 bg-black border-t border-white/10 text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <span class="text-lg font-bold text-white font-display">aemi.dev</span>
+                <span>© 2026 Emily Alva - Software Developer. All rights reserved.</span>
+            </div>
+            <div class="flex items-center space-x-6 text-gray-400">
+                <a href="https://github.com/emilyalvae" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                <a href="https://www.linkedin.com/in/emily-alva/" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
+                <a href="https://twitter.com" target="_blank" class="hover:text-white transition-colors">Twitter / X</a>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- =====================================================
+         INDEX SCRIPT
+    ====================================================== -->
+
+    <script>
+
+        const sections =
+            document.querySelectorAll(".doc-section");
+
+        const links =
+            document.querySelectorAll(".index-link");
+
+
+        const observer = new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        const id =
+                            entry.target.id;
+
+
+                        links.forEach(link => {
+
+                            link.classList.remove("active");
+
+                            if (
+                                link.dataset.section === id
+                            ) {
+
+                                link.classList.add("active");
+
+                            }
+
+                        });
+
+                    }
+
+                });
+
+            },
+
+            {
+                rootMargin: "-20% 0px -65% 0px"
+            }
+
+        );
+
+
+        sections.forEach(section => {
+
+            observer.observe(section);
+
+        });
+
+
+        /*
+         * Mobile:
+         * cerrar cualquier menú si luego
+         * añadimos navegación móvil.
+         */
+
+    </script>
+
+
+</body>
+
+</html>

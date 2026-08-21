@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emily — Full-Stack Software Engineer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Syne -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+    <!-- Three.js for 3D Visual Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                    },
+                    colors: {
+                        darkBg: '#050505',
+                        darkCard: '#111113',
+                        darkCardHover: '#18181c',
+                        borderMuted: '#222226',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 8s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-15px) rotate(3deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .heading-font {
+            font-family: 'Syne', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        /* Glassmorphism overlays */
+        .glass-card {
+            background: rgba(18, 18, 20, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card-hover:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-4px);
+        }
+
+        /* Dashed underline custom style */
+        .dashed-underline {
+            border-bottom: 1.5px dashed rgba(255, 255, 255, 0.35);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #444;
+        }
+
+        /* Iridescent glow background filter */
+        .iridescent-glow {
+            background: radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.15), rgba(99, 102, 241, 0.12), transparent 70%);
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-white antialiased selection:bg-purple-600 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-darkBg/70 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#home" class="text-2xl font-bold tracking-tight text-white flex items-center gap-1 font-display">
+                æmi<span class="text-purple-400">.dev</span>
+            </a>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center space-x-10 text-sm font-medium text-gray-300">
+                <a href="#home" class="hover:text-white transition-colors">Home</a>
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                 <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                <a href="#about-stack" class="hover:text-white transition-colors">Tech Stack</a>
+               
+                
+            </nav>
+
+            <!-- Action Button -->
+            <div class="hidden md:block">
+                <button onclick="openModal('contact')" class="px-6 py-2.5 rounded-full bg-white text-black font-medium text-sm hover:bg-gray-200 transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-white/10">
+                    Contactame
+                </button>
+            </div>
+
+            <!-- Mobile Hamburger Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-gray-300 hover:text-white text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden bg-darkBg/95 border-b border-white/10 px-6 py-6 flex flex-col space-y-4 text-center">
+            <a href="#home" class="mobile-link text-gray-300 hover:text-white py-2">Home</a>
+            <a href="#about" class="mobile-link text-gray-300 hover:text-white py-2">About</a>
+            <a href="#projects" class="mobile-link text-gray-300 hover:text-white py-2">Projects</a>
+            <a href="#about-stack" class="mobile-link text-gray-300 hover:text-white py-2">Tech Stack</a>
+            <button onclick="openModal('contact')" class="w-full py-3 rounded-full bg-white text-black font-semibold text-sm mt-2">
+                Contactame
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex flex-col items-center justify-center pt-28 pb-16 px-6 overflow-hidden">
+        <!-- 3D ThreeJS Interactive Canvas Background -->
+        <div class="absolute inset-0 z-0 pointer-events-auto">
+            <canvas id="hero3dCanvas" class="w-full h-full"></canvas>
+        </div>
+
+        <!-- Hero Content Layer -->
+        <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center justify-center mt-8">
+            <h1 class="heading-font text-4xl md:text-6xl lg:text-7xl font-extrabold uppercase tracking-tight text-white leading-tight md:leading-none max-w-4xl drop-shadow-2xl">
+                — EMILY ALVA — FULL STACK<br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-indigo-300">SOFTWARE DEVELOPER</span>
+            </h1>
+
+            <!-- Subtitle paragraph -->
+            <p class="mt-8 text-xs md:text-sm text-gray-400 max-w-lg leading-relaxed font-light px-4">
+                Diseño aplicaciones web de alto rendimiento, desarrollo microservicios escalables e integro soluciones de IA. Especializada en arquitectura backend con dominio de frontend moderno.
+            </p>
+
+            <!-- CTA Button -->
+            <div class="mt-8">
+                <a href="#projects" class="group relative inline-flex items-center gap-3 px-6 py-2.5 rounded-full border border-white/30 bg-black/40 backdrop-blur-md text-white font-normal text-xs md:text-sm transition-all hover:border-white/80 hover:bg-black/70">
+                    <span>Conoce lo que construyo</span>
+                    <span class="w-6 h-6 rounded-full bg-white text-black flex items-center justify-center text-xs transition-transform group-hover:translate-x-1">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Metrics Section -->
+    <section id="about" class="relative py-20 px-6 border-t border-white/5 bg-black">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <!-- Left Header & Text -->
+            <div class="lg:col-span-6 space-y-6">
+                <h2 class="heading-font text-5xl md:text-6xl font-bold uppercase tracking-tight text-white">
+                    ABOUT
+                </h2>
+                <div class="text-gray-400 text-xs md:text-sm leading-relaxed space-y-4 max-w-lg">
+                    <p>
+                        Desarrolladora de software apasionada, enfocada en construir aplicaciones web resilientes y de alto rendimiento, sistemas de microservicios escalables y soluciones con inteligencia artificial aplicada.
+                    </p>
+                    <p>
+                        Impulsada por el clean code, la automatización de procesos y los estándares modernos de desarrollo. Cuento con experiencia sólida en backend y dominio de frontend moderno para crear interfaces funcionales y responsivas.
+                    </p>
+                </div>
+                <div class="pt-2">
+                    <a href="#about-stack" class="inline-flex items-center gap-2 text-xs md:text-sm font-medium text-gray-300 hover:text-white group">
+                        <span>Ver stack tecnológico detallado</span>
+                        <span class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center text-[10px] group-hover:border-white transition-all">
+                            <i class="fa-solid fa-arrow-down text-[9px]"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Key Metrics / Stats -->
+            <div class="lg:col-span-6 flex flex-col gap-8 pt-6 lg:pt-0">
+
+    <!-- Metrics -->
+    <div class="flex flex-wrap lg:flex-nowrap items-baseline justify-between gap-8">
+
+        <div class="space-y-1">
+            <div class="heading-font text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+                2+
+            </div>
+            <p class="text-gray-400 text-sm font-light">
+                años de experiencia
+            </p>
+        </div>
+
+        <div class="space-y-1">
+            <div class="heading-font text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+                13+
+            </div>
+            <p class="text-gray-400 text-sm font-light">
+                proyectos desarrollados
+            </p>
+        </div>
+
+        <div class="space-y-1">
+            <div class="heading-font text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+                15+
+            </div>
+            <p class="text-gray-400 text-sm font-light">
+                tecnologías aprendidas
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Social Buttons -->
+    <div class="flex justify-center items-center gap-20 pt-10">
+
+        <!-- GitHub -->
+        <a href="https://github.com/emilyalvae"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-medium border border-white/10 transition-all group">
+
+            <i class="fa-brands fa-github text-sm"></i>
+
+            <span>GitHub</span>
+
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]
+                      transform group-hover:translate-x-0.5
+                      group-hover:-translate-y-0.5 transition-transform">
+            </i>
+
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/emily-alva/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-medium border border-white/10 transition-all group">
+
+            <i class="fa-brands fa-linkedin-in text-sm"></i>
+
+            <span>LinkedIn</span>
+
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]
+                      transform group-hover:translate-x-0.5
+                      group-hover:-translate-y-0.5 transition-transform">
+            </i>
+
+        </a>
+
+    </div>
+
+</div>
+            
+        </div>
+    </section>
+     <!-- Section: PROJECTS (Adapted from "OUR SERVICES" visual structure) -->
+    <section id="projects" class="py-24 px-6 bg-darkBg border-t border-white/5 relative">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header & Action Button -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+                <div>
+                    <h2 class="heading-font text-5xl md:text-6xl font-bold uppercase tracking-tight text-white">
+                        PROJECTS
+                    </h2>
+                    <p class="mt-4 text-xs md:text-sm text-gray-400 max-w-md leading-relaxed">
+                        Muestra de proyectos recientes en backend, microservicios escalables y soluciones cloud‑native, integrando inteligencia artificial y tecnologías modernas.
+                    </p>
+                </div>
+                <a href="https://github.com/emilyalvae" target="_blank">
+                    <button  class="group inline-flex items-center gap-3 px-6 py-2.5 rounded-full border border-white/30 bg-black text-white font-normal text-xs md:text-sm hover:border-white transition-all">
+                        <span>Mas Proyectos</span>
+                        <span class="w-6 h-6 rounded-full bg-white text-black flex items-center justify-center text-xs transition-transform group-hover:translate-x-1">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </button>
+                </a>
+            </div>
+
+            <!-- Projects Grid (Custom asymmetric layout) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Card 01: HIGH-THROUGHPUT MICROSERVICES -->
+                 
+                <a href="projects/vita.html"
+                    class="block glass-card glass-card-hover rounded-3xl min-h-[260px] relative overflow-hidden group">
+
+                    <!-- Imagen -->
+                    <img 
+                        src="assets/portada.png"
+                        alt="Fintech High-Throughput API"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    >
+
+                    <!-- Overlay oscuro para que el texto sea legible -->
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all"></div>
+
+                    <!-- Contenido -->
+                    <div class="relative z-10 h-full min-h-[260px] p-8 flex flex-col justify-between">
+
+                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs font-mono text-gray-300">
+                            01
+                        </div>
+
+                        <div>
+                            <h3 class="heading-font text-lg md:text-xl font-bold uppercase tracking-wide text-white mb-3">
+                                VITA - ASISTENTE INTELIGENTE CON RAG Y AGENTES IA
+                            </h3>
+
+                            <p class="text-xs text-gray-200 leading-relaxed font-light max-w-sm">
+                                Distributed payment engine processing over 50k transactions/sec using Golang, Redis, Kafka, PostgreSQL, and Kubernetes with low latency.
+                            </p>
+                        </div>
+
+                    </div>
+                </a>
+
+                <!-- Card 02: REAL-TIME ANALYTICAL DASHBOARD -->
+                <div class="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between min-h-[260px] relative overflow-hidden group">
+                    <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs font-mono text-gray-300 mb-8">
+                        02
+                    </div>
+                    <div>
+                        <h3 class="heading-font text-lg md:text-xl font-bold uppercase tracking-wide text-white mb-3">
+                            REAL-TIME AI DASHBOARD
+                        </h3>
+                        <p class="text-xs text-gray-400 leading-relaxed font-light max-w-sm">
+                            SaaS platform integrating React 18, Next.js, WebSockets, and Tailwind CSS for live data analytics visualization and interactive ML insights.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 03: CREATIVE DESIGN SERVICE (White Accent Highlight Card!) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:col-span-1">
+                    <div class="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between min-h-[260px]">
+                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs font-mono text-gray-300 mb-6">
+                            04
+                        </div>
+                        <div>
+                            <h3 class="heading-font text-base font-bold uppercase tracking-wide text-white mb-2">
+                                CLOUD DEPLOYMENT PLATFORM
+                            </h3>
+                            <p class="text-[11px] text-gray-400 leading-relaxed font-light">
+                                Automated CI/CD, Docker, and Kubernetes orchestration with zero-downtime blue/green deployments.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between min-h-[260px]">
+                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs font-mono text-gray-300 mb-6">
+                            04
+                        </div>
+                        <div>
+                            <h3 class="heading-font text-base font-bold uppercase tracking-wide text-white mb-2">
+                                CLOUD DEPLOYMENT PLATFORM
+                            </h3>
+                            <p class="text-[11px] text-gray-400 leading-relaxed font-light">
+                                Automated CI/CD, Docker, and Kubernetes orchestration with zero-downtime blue/green deployments.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 04 & Butterfly / Visual Art Combination Container -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:col-span-1">
+                    <!-- Card 04: CLOUD NATIVE DEPLOYMENT PIPELINES -->
+                    <div class="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between min-h-[260px]">
+                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs font-mono text-gray-300 mb-6">
+                            04
+                        </div>
+                        <div>
+                            <h3 class="heading-font text-base font-bold uppercase tracking-wide text-white mb-2">
+                                CLOUD DEPLOYMENT PLATFORM
+                            </h3>
+                            <p class="text-[11px] text-gray-400 leading-relaxed font-light">
+                                Automated CI/CD, Docker, and Kubernetes orchestration with zero-downtime blue/green deployments.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Visual Graphic Card (3D Glass Butterfly Graphic Container) -->
+                    <div class="glass-card rounded-3xl p-4 flex items-center justify-center relative overflow-hidden min-h-[260px] group border border-white/10">
+                        <div class="absolute inset-0 iridescent-glow opacity-60 group-hover:opacity-100 transition-opacity"></div>
+                        <!-- SVG / 3D Metallic Butterfly Visual -->
+                        <div class="relative z-10 transform group-hover:scale-110 transition-transform duration-700">
+                            <svg width="180" height="180" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="filter drop-shadow-[0_15px_25px_rgba(192,132,252,0.4)]">
+                                <defs>
+                                    <linearGradient id="butterflyGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#e879f9" stop-opacity="0.9" />
+                                        <stop offset="50%" stop-color="#818cf8" stop-opacity="0.8" />
+                                        <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.9" />
+                                    </linearGradient>
+                                    <linearGradient id="butterflyGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#a855f7" />
+                                        <stop offset="100%" stop-color="#06b6d4" />
+                                    </linearGradient>
+                                </defs>
+                                <!-- Left Wing Upper -->
+                                <path d="M 100 100 C 60 20, 10 30, 20 80 C 25 110, 80 115, 100 100 Z" fill="url(#butterflyGrad1)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" />
+                                <!-- Left Wing Lower -->
+                                <path d="M 100 105 C 50 120, 20 160, 45 180 C 70 190, 95 140, 100 105 Z" fill="url(#butterflyGrad2)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" />
+                                <!-- Right Wing Upper -->
+                                <path d="M 100 100 C 140 20, 190 30, 180 80 C 175 110, 120 115, 100 100 Z" fill="url(#butterflyGrad1)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" />
+                                <!-- Right Wing Lower -->
+                                <path d="M 100 105 C 150 120, 180 160, 155 180 C 130 190, 105 140, 100 105 Z" fill="url(#butterflyGrad2)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" />
+                                <!-- Butterfly Body -->
+                                <ellipse cx="100" cy="102" rx="4" ry="25" fill="#ffffff" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Detailed Tech Stack (The "About Me" and "Skills" hybrid) -->
+    <section id="about-stack" class="py-24 px-6 bg-darkBg border-t border-white/5 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Column: Intro Text & Categorized Skill Boxes -->
+            <div class="lg:col-span-7 space-y-8 z-10">
+                <!-- Intro Header Block -->
+                <div class="space-y-3">
+                    <h2 class="heading-font text-5xl md:text-6xl font-bold uppercase tracking-tight text-white">
+                        STACKS
+                    </h2>
+                    <p class="text-xs md:text-sm text-gray-400 font-light">
+                        Algunas de mis tecnologías, temas o herramientas favoritas con las que he trabajado.
+                    </p>
+                </div>
+
+                <!-- Skill Categories Boxes -->
+                <div class="space-y-4">
+                    
+                    <!-- Box 1: Front-end -->
+                    <div class="glass-card rounded-2xl p-5 border border-white/10 hover:border-white/20 transition-all bg-[#121215]">
+                        <div class="text-xs font-semibold text-purple-400 uppercase tracking-wider mb-2 font-mono">
+                            Back-end
+                        </div>
+                        <p class="text-xs md:text-sm text-gray-300 leading-relaxed font-normal">
+                            Python / Django REST Framework / FastAPI / Java / Spring Boot / PostgreSQL / MySQL / MongoDB / REST APIs / Microservices
+                        </p>
+                    </div>
+
+                    <!-- Box 2: Styles (With GitHub Button & Diagonal Arrow) -->
+                    <div class="glass-card rounded-2xl p-5 border border-white/10 hover:border-white/20 transition-all bg-[#121215]">
+                            <div class="text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-2 font-mono">
+                                AI
+                            </div>
+                            <p class="text-xs md:text-sm text-gray-300 leading-relaxed font-normal">
+                               Generative AI / LLMs / RAG / Embeddings / Semantic Search / LangChain / LangGraph / Prompt Engineering / AI Agents
+                            </p>
+                    </div>
+
+                    <!-- Box 3: Back-end -->
+                    <div class="glass-card rounded-2xl p-5 border border-white/10 hover:border-white/20 transition-all bg-[#121215]">
+                        <div class="text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-2 font-mono">
+                            Front-end
+                        </div>
+                        <p class="text-xs md:text-sm text-gray-300 leading-relaxed font-normal">
+                            React / Angular / TypeScript / JavaScript / Next.js / Tailwind CSS / HTML / CSS / Vite
+                        </p>
+                    </div>
+
+                    <!-- Box 4: DevOps -->
+                    <div class="glass-card rounded-2xl p-5 border border-white/10 hover:border-white/20 transition-all bg-[#121215]">
+                        <div class="text-xs font-semibold text-cyan-400 uppercase tracking-wider mb-2 font-mono">
+                            Cloud & DevOps
+                        </div>
+                        <p class="text-xs md:text-sm text-gray-300 leading-relaxed font-normal">
+                            Docker / Nginx / Render / Railway / Vercel / Supabase / Git / GitHub / Linux / Bash
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Right Column: B&W Developer Portrait with Subtle Circular Background Graphic -->
+            <div class="lg:col-span-5 flex justify-center items-center relative py-8">
+                <!-- Subtle circular graphic background element -->
+                <div class="absolute w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] rounded-full border border-white/10 bg-gradient-to-tr from-purple-900/20 via-indigo-900/10 to-transparent blur-xl pointer-events-none"></div>
+                
+                <div class="relative z-10 w-full max-w-md">
+                    <!-- Subtle outer ring framing photo -->
+                    <div class="absolute -inset-4 rounded-full border border-white/10 animate-pulse-slow"></div>
+                    
+                    <!-- Portrait Image Container with high quality B&W image -->
+                    <div class="relative rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-neutral-900 aspect-[3/4] group">
+                        <img 
+                            src="assets/perfil1.png" 
+                            alt="Nikita Developer Portrait" 
+                            class="w-full h-full object-cover filter grayscale contrast-125 hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x800/1a1a1a/ffffff?text=Nikita+Developer';"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 flex items-center justify-between">
+                            <div>
+                                <p class="text-xs font-mono text-gray-400">STATUS</p>
+                                <p class="text-xs font-medium text-emerald-400 flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                                    Available for Projects
+                                </p>
+                            </div>
+                            <span class="text-xs font-mono text-gray-400">2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+   
+
+    <!-- Special Offer Section -->
+    <section class="relative py-32 px-6 bg-black overflow-hidden flex flex-col items-center justify-center border-t border-white/5">
+        <!-- Background Ambient Iridescent Visual Effect -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-40 pointer-events-none">
+            <div class="w-[600px] h-[350px] bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 rounded-full blur-[120px] animate-pulse-slow"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
+            <h2 class="heading-font text-4xl md:text-6xl lg:text-7xl font-extrabold uppercase tracking-tight text-white leading-tight">
+                TRABAJEMOS JUNTOS<br />
+                EN TU<br />
+                PRÓXIMO PROYECTO
+            </h2>
+
+            <p class="mt-8 text-xs md:text-sm text-gray-400 max-w-md leading-relaxed font-light">
+                ¿Busca desarrollar un producto digital de alto impacto o requiere dirección especializada en arquitectura técnica? Hagamos realidad sus proyectos más ambiciosos.
+            </p>
+
+            <div class="mt-8">
+                <button onclick="openModal('contact')" class="group inline-flex items-center gap-3 px-7 py-3 rounded-full border border-white/30 bg-black/60 backdrop-blur-md text-white font-normal text-xs md:text-sm hover:border-white transition-all">
+                    <span>Contacto</span>
+                    <span class="w-6 h-6 rounded-full bg-white text-black flex items-center justify-center text-xs transition-transform group-hover:translate-x-1">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-black border-t border-white/10 text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <span class="text-lg font-bold text-white font-display">aemi.dev</span>
+                <span>© 2026 Emily Alva - Software Developer. All rights reserved.</span>
+            </div>
+            <div class="flex items-center space-x-6 text-gray-400">
+                <a href="https://github.com/emilyalvae" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                <a href="https://www.linkedin.com/in/emily-alva/" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
+                <a href="https://twitter.com" target="_blank" class="hover:text-white transition-colors">Twitter / X</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Container: Contact Modal -->
+    <div id="contactModal"
+     class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+
+    <div class="glass-card rounded-3xl max-w-lg w-full p-8 border border-white/20 relative shadow-2xl">
+
+        <!-- Close -->
+        <button onclick="closeModal('contact')"
+                class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl transition-colors">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Header -->
+        <div class="mb-8">
+            <h3 class="heading-font text-2xl font-bold text-white mb-2">
+                LET'S CONNECT
+            </h3>
+
+            <p class="text-xs text-gray-400">
+                Feel free to reach out through any of the following channels.
+            </p>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="space-y-3">
+
+            <!-- Email -->
+            <div
+               class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group">
+
+                <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-envelope text-gray-300 group-hover:text-white transition-colors"></i>
+                </div>
+
+                <div class="min-w-0">
+                    <p class="text-[10px] uppercase tracking-wider text-gray-500 font-mono mb-1">
+                        Email
+                    </p>
+
+                    <p class="text-sm text-gray-200 truncate">
+                        emilisa23@gmail.com
+                    </p>
+                </div>
+
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-gray-500 ml-auto
+                          group-hover:text-white transition-colors"></i>
+            </div>
+
+
+            <!-- Phone -->
+            <div
+               class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group">
+
+                <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-phone text-gray-300 group-hover:text-white transition-colors"></i>
+                </div>
+
+                <div>
+                    <p class="text-[10px] uppercase tracking-wider text-gray-500 font-mono mb-1">
+                        Phone
+                    </p>
+
+                    <p class="text-sm text-gray-200">
+                        +51 937 313 491
+                    </p>
+                </div>
+
+                <i class="fa-solid fa-phone text-[10px] text-gray-500 ml-auto
+                          group-hover:text-white transition-colors"></i>
+            </div>
+
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/emily-alva/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group">
+
+                <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+                    <i class="fa-brands fa-linkedin-in text-gray-300 group-hover:text-white transition-colors"></i>
+                </div>
+
+                <div class="min-w-0">
+                    <p class="text-[10px] uppercase tracking-wider text-gray-500 font-mono mb-1">
+                        LinkedIn
+                    </p>
+
+                    <p class="text-sm text-gray-200 truncate">
+                        linkedin.com/in/emily-alva
+                    </p>
+                </div>
+
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-gray-500 ml-auto
+                          group-hover:text-white transition-colors"></i>
+            </a>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-7 pt-5 border-t border-white/10">
+            <p class="text-[10px] text-gray-500 text-center">
+                Available for professional opportunities, collaborations and projects.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+    <script>
+        /* Mobile Menu Toggle */
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        /* Modal Toggle System */
+        function openModal(id) {
+            const modal = document.getElementById(id + 'Modal');
+            if (!modal) return;
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+            }, 10);
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id + 'Modal');
+            if (!modal) return;
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const successMsg = document.getElementById('formSuccess');
+            successMsg.classList.remove('hidden');
+            setTimeout(() => {
+                closeModal('contact');
+                e.target.reset();
+                successMsg.classList.add('hidden');
+            }, 2000);
+        }
+
+        /* Three.js Interactive 3D Iridescent Mesh in Hero */
+        let scene, camera, renderer, mesh;
+        let mouseX = 0, mouseY = 0;
+
+        function initThreeJS() {
+            const container = document.getElementById('hero3dCanvas');
+            const width = container.clientWidth || window.innerWidth;
+            const height = container.clientHeight || window.innerHeight;
+
+            scene = new THREE.Scene();
+
+            camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+            camera.position.z = 6;
+
+            renderer = new THREE.WebGLRenderer({ canvas: container, alpha: true, antialias: true });
+            renderer.setSize(width, height);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            // Lighting for high metallic liquid reflection
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+
+            const pointLight1 = new THREE.PointLight(0xa855f7, 2, 50); // Purple light
+            pointLight1.position.set(5, 5, 5);
+            scene.add(pointLight1);
+
+            const pointLight2 = new THREE.PointLight(0xec4899, 2, 50); // Pink light
+            pointLight2.position.set(-5, -5, 2);
+            scene.add(pointLight2);
+
+            const pointLight3 = new THREE.PointLight(0x38bdf8, 1.5, 50); // Cyan light
+            pointLight3.position.set(0, 5, -5);
+            scene.add(pointLight3);
+
+            // Iridescent TorusKnot Liquid Geometry
+            const geometry = new THREE.TorusKnotGeometry(1.4, 0.45, 128, 32, 2, 3);
+            
+            // Advanced Metallic Glass Material setup
+            const material = new THREE.MeshPhysicalMaterial({
+                color: 0xffffff,
+                metalness: 0.9,
+                roughness: 0.15,
+                clearcoat: 1.0,
+                clearcoatRoughness: 0.1,
+                transmission: 0.2,
+                ior: 1.5,
+                wireframe: false
+            });
+
+            mesh = new THREE.Mesh(geometry, material);
+            scene.add(mesh);
+
+            // Mouse interaction setup
+            window.addEventListener('mousemove', (e) => {
+                mouseX = (e.clientX / window.innerWidth - 0.5) * 0.8;
+                mouseY = (e.clientY / window.innerHeight - 0.5) * 0.8;
+            });
+
+            window.addEventListener('resize', onWindowResize);
+        }
+
+        function onWindowResize() {
+            const container = document.getElementById('hero3dCanvas');
+            if (!container) return;
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(width, height);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            if (mesh) {
+                // Dynamic continuous rotation
+                mesh.rotation.x += 0.005;
+                mesh.rotation.y += 0.007;
+
+                // Subtle fluid sway based on mouse movements
+                mesh.rotation.x += (mouseY - mesh.rotation.x) * 0.02;
+                mesh.rotation.y += (mouseX - mesh.rotation.y) * 0.02;
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        // Start 3D canvas render on load
+        window.onload = function() {
+            initThreeJS();
+            animate();
+        };
+    </script>
+    
+</body>
+</html>
