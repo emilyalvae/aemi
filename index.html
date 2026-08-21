@@ -69,7 +69,7 @@
         }
 
         .glass-card-hover:hover {
-            border-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.15);
             transform: translateY(-4px);
         }
 
@@ -154,13 +154,13 @@
         <!-- Hero Content Layer -->
         <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center justify-center mt-8">
             <h1 class="heading-font text-4xl md:text-6xl lg:text-7xl font-extrabold uppercase tracking-tight text-white leading-tight md:leading-none max-w-4xl drop-shadow-2xl">
-                — EMILY ALVA — FULL STACK<br/>
+                EMILY ALVA Backend & AI Engineer<br/>
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-indigo-300">SOFTWARE DEVELOPER</span>
             </h1>
 
             <!-- Subtitle paragraph -->
             <p class="mt-8 text-xs md:text-sm text-gray-400 max-w-lg leading-relaxed font-light px-4">
-                Diseño aplicaciones web de alto rendimiento, desarrollo microservicios escalables e integro soluciones de IA. Especializada en arquitectura backend con dominio de frontend moderno.
+                Diseño arquitecturas backend sólidas, desarrollo sistemas de microservicios escalables y construyo agentes de IA con RAG. Especializada en ingeniería de software con dominio de tecnologías modernas frontend para entregar soluciones end-to-end de alto impacto.
             </p>
 
             <!-- CTA Button -->
@@ -313,122 +313,186 @@
                     <img 
                         src="assets/portada.png"
                         alt="Fintech High-Throughput API"
-                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        class="absolute inset-0 w-full h-full object-cover"
                     >
-
                     <!-- Overlay oscuro para que el texto sea legible -->
                     <div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all"></div>
-
                     <!-- Contenido -->
                     <div class="relative z-10 h-full min-h-[260px] p-8 flex flex-col justify-between">
-
                         <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs font-mono text-gray-300">
                             01
                         </div>
-
                         <div>
                             <h3 class="heading-font text-lg md:text-xl font-bold uppercase tracking-wide text-white mb-3">
                                 VITA - ASISTENTE INTELIGENTE CON RAG Y AGENTES IA
                             </h3>
-
                             <p class="text-xs text-gray-200 leading-relaxed font-light max-w-sm">
-                                Distributed payment engine processing over 50k transactions/sec using Golang, Redis, Kafka, PostgreSQL, and Kubernetes with low latency.
+                                Asistente inteligente con RAG, LangGraph y Gemini, capaz de realizar búsqueda semántica y responder consultas contextualizadas, incluyendo triaje y gestión de tickets.
                             </p>
                         </div>
-
                     </div>
                 </a>
 
                 <!-- Card 02: REAL-TIME ANALYTICAL DASHBOARD -->
-                <div class="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between min-h-[260px] relative overflow-hidden group">
-                    <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs font-mono text-gray-300 mb-8">
-                        02
-                    </div>
-                    <div>
-                        <h3 class="heading-font text-lg md:text-xl font-bold uppercase tracking-wide text-white mb-3">
-                            REAL-TIME AI DASHBOARD
-                        </h3>
-                        <p class="text-xs text-gray-400 leading-relaxed font-light max-w-sm">
-                            SaaS platform integrating React 18, Next.js, WebSockets, and Tailwind CSS for live data analytics visualization and interactive ML insights.
-                        </p>
+                <div href="projects/goo.html"
+                    class="block glass-card glass-card-hover rounded-3xl min-h-[260px] relative overflow-hidden group">
+
+                    <!-- Imagen -->
+                    <img 
+                        src="assets/goo2.png"
+                        alt="Fintech High-Throughput API"
+                        class="absolute inset-0 w-full h-full object-cover"
+                    >
+                    <!-- Overlay oscuro para que el texto sea legible -->
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all"></div>
+                    <!-- Contenido -->
+                    <div class="relative z-10 h-full min-h-[260px] p-8 flex flex-col justify-between">
+                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs font-mono text-gray-300">
+                            02
+                        </div>
+                        <div>
+                            <h3 class="heading-font text-lg md:text-xl font-bold uppercase tracking-wide text-white mb-3">
+                                GOO - BACKEND Y SISTEMA DE BÚSQUEDA INTELIGENTE CON IA
+                            </h3>
+                            <p class="text-xs text-gray-200 leading-relaxed font-light max-w-sm">
+                                Plataforma inmobiliaria con APIs REST y motor de búsqueda semántica mediante embeddings, optimizando la precisión de resultados según la intención del usuario.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Card 03: CREATIVE DESIGN SERVICE (White Accent Highlight Card!) -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:col-span-1">
-                    <div class="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between min-h-[260px]">
-                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs font-mono text-gray-300 mb-6">
-                            04
-                        </div>
-                        <div>
-                            <h3 class="heading-font text-base font-bold uppercase tracking-wide text-white mb-2">
-                                CLOUD DEPLOYMENT PLATFORM
-                            </h3>
-                            <p class="text-[11px] text-gray-400 leading-relaxed font-light">
-                                Automated CI/CD, Docker, and Kubernetes orchestration with zero-downtime blue/green deployments.
-                            </p>
+                    <!-- Card 03 -->
+                    <div class="glass-card glass-card-hover rounded-3xl min-h-[260px] relative overflow-hidden group">
+
+                        <!-- Imagen -->
+                        <img 
+                            src="assets/portadafluye.png"
+                            alt="Cloud Deployment Platform"
+                            class="absolute inset-0 w-full h-full object-cover"
+                        >
+
+                        <!-- Overlay -->
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all"></div>
+
+                        <!-- Contenido -->
+                        <div class="relative z-10 h-full min-h-[260px] p-8 flex flex-col justify-between">
+
+                            <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs font-mono text-gray-300">
+                                03
+                            </div>
+
+                            <div>
+                                <h3 class="heading-font text-base font-bold uppercase tracking-wide text-white mb-2">
+                                    FLUYE - REINGENIERÍA BACKEND: WORDPRESS A DJANGO
+                                </h3>
+
+                                <p class="text-[11px] text-gray-300 leading-relaxed font-light">
+                                    Migración de WordPress a Django para mejorar la escalabilidad, mantenibilidad y flexibilidad del sistema.
+                                </p>
+                            </div>
+
                         </div>
                     </div>
-                    <div class="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between min-h-[260px]">
-                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs font-mono text-gray-300 mb-6">
-                            04
-                        </div>
-                        <div>
-                            <h3 class="heading-font text-base font-bold uppercase tracking-wide text-white mb-2">
-                                CLOUD DEPLOYMENT PLATFORM
-                            </h3>
-                            <p class="text-[11px] text-gray-400 leading-relaxed font-light">
-                                Automated CI/CD, Docker, and Kubernetes orchestration with zero-downtime blue/green deployments.
-                            </p>
+                    <!-- Card 04 -->
+                    <div class="glass-card glass-card-hover rounded-3xl min-h-[260px] relative overflow-hidden group">
+
+                        <!-- Imagen -->
+                        <img 
+                            src="assets/workflow.png"
+                            alt="Cloud Deployment Platform"
+                            class="absolute inset-0 w-full h-full object-cover"
+                        >
+
+                        <!-- Overlay -->
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all"></div>
+
+                        <!-- Contenido -->
+                        <div class="relative z-10 h-full min-h-[260px] p-8 flex flex-col justify-between">
+
+                            <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs font-mono text-gray-300">
+                                04
+                            </div>
+
+                            <div>
+                                <h3 class="heading-font text-base font-bold uppercase tracking-wide text-white mb-2">
+                                    CHOCOLATECH - AGENTE DE RECURSOS HUMANOS CON IA
+                                </h3>
+
+                                <p class="text-[11px] text-gray-300 leading-relaxed font-light">
+                                    Agente de RRHH en n8n y Cohere con MySQL para consultas de políticas y respuestas personalizadas por empleado.
+                                </p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 04 & Butterfly / Visual Art Combination Container -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:col-span-1">
-                    <!-- Card 04: CLOUD NATIVE DEPLOYMENT PIPELINES -->
-                    <div class="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between min-h-[260px]">
-                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs font-mono text-gray-300 mb-6">
-                            04
-                        </div>
-                        <div>
-                            <h3 class="heading-font text-base font-bold uppercase tracking-wide text-white mb-2">
-                                CLOUD DEPLOYMENT PLATFORM
-                            </h3>
-                            <p class="text-[11px] text-gray-400 leading-relaxed font-light">
-                                Automated CI/CD, Docker, and Kubernetes orchestration with zero-downtime blue/green deployments.
-                            </p>
+                    <!-- Card 03 -->
+                    <div class="glass-card glass-card-hover rounded-3xl min-h-[260px] relative overflow-hidden group">
+
+                        <!-- Imagen -->
+                        <img 
+                            src="assets/construplan.png"
+                            alt="Cloud Deployment Platform"
+                            class="absolute inset-0 w-full h-full object-cover"
+                        >
+
+                        <!-- Overlay -->
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all"></div>
+
+                        <!-- Contenido -->
+                        <div class="relative z-10 h-full min-h-[260px] p-8 flex flex-col justify-between">
+
+                            <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs font-mono text-gray-300">
+                                05
+                            </div>
+
+                            <div>
+                                <h3 class="heading-font text-base font-bold uppercase tracking-wide text-white mb-2">
+                                    CONSTRUPLAN - SISTEMA DE CONTROL DE HORAS EN CONSTRUCCIÓN
+                                </h3>
+
+                                <p class="text-[11px] text-gray-300 leading-relaxed font-light">
+                                    Gestión de asistencia y horas en obra con cálculo automatizado de remuneraciones y control centralizado del personal.
+                                </p>
+                            </div>
+
                         </div>
                     </div>
+                    <!-- Card 04 -->
+                    <div class="glass-card glass-card-hover rounded-3xl min-h-[260px] relative overflow-hidden group">
 
-                    <!-- Visual Graphic Card (3D Glass Butterfly Graphic Container) -->
-                    <div class="glass-card rounded-3xl p-4 flex items-center justify-center relative overflow-hidden min-h-[260px] group border border-white/10">
-                        <div class="absolute inset-0 iridescent-glow opacity-60 group-hover:opacity-100 transition-opacity"></div>
-                        <!-- SVG / 3D Metallic Butterfly Visual -->
-                        <div class="relative z-10 transform group-hover:scale-110 transition-transform duration-700">
-                            <svg width="180" height="180" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="filter drop-shadow-[0_15px_25px_rgba(192,132,252,0.4)]">
-                                <defs>
-                                    <linearGradient id="butterflyGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stop-color="#e879f9" stop-opacity="0.9" />
-                                        <stop offset="50%" stop-color="#818cf8" stop-opacity="0.8" />
-                                        <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.9" />
-                                    </linearGradient>
-                                    <linearGradient id="butterflyGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#a855f7" />
-                                        <stop offset="100%" stop-color="#06b6d4" />
-                                    </linearGradient>
-                                </defs>
-                                <!-- Left Wing Upper -->
-                                <path d="M 100 100 C 60 20, 10 30, 20 80 C 25 110, 80 115, 100 100 Z" fill="url(#butterflyGrad1)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" />
-                                <!-- Left Wing Lower -->
-                                <path d="M 100 105 C 50 120, 20 160, 45 180 C 70 190, 95 140, 100 105 Z" fill="url(#butterflyGrad2)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" />
-                                <!-- Right Wing Upper -->
-                                <path d="M 100 100 C 140 20, 190 30, 180 80 C 175 110, 120 115, 100 100 Z" fill="url(#butterflyGrad1)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" />
-                                <!-- Right Wing Lower -->
-                                <path d="M 100 105 C 150 120, 180 160, 155 180 C 130 190, 105 140, 100 105 Z" fill="url(#butterflyGrad2)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" />
-                                <!-- Butterfly Body -->
-                                <ellipse cx="100" cy="102" rx="4" ry="25" fill="#ffffff" />
-                            </svg>
+                        <!-- Imagen -->
+                        <img 
+                            src="assets/centenario.png"
+                            alt="Cloud Deployment Platform"
+                            class="absolute inset-0 w-full h-full object-cover"
+                        >
+
+                        <!-- Overlay -->
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all"></div>
+
+                        <!-- Contenido -->
+                        <div class="relative z-10 h-full min-h-[260px] p-8 flex flex-col justify-between">
+
+                            <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs font-mono text-gray-300">
+                                06
+                            </div>
+
+                            <div>
+                                <h3 class="heading-font text-base font-bold uppercase tracking-wide text-white mb-2">
+                                    CENTENARIO - BACKEND DE AUDITORÍA Y SERVICIOS
+                                </h3>
+
+                                <p class="text-[11px] text-gray-300 leading-relaxed font-light">
+                                    Gestión de estados de cuenta, reportes operativos y trazabilidad de acciones con tareas automatizadas.
+                                </p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
