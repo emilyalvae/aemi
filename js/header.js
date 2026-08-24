@@ -40,14 +40,20 @@ function configurarHeader() {
     }
 
 
-    // Configurar enlaces del header
-    document.querySelectorAll("[data-section]").forEach(link => {
+    // Solo modificar los enlaces del HEADER
+    const header = document.querySelector("header");
 
-        const section = link.dataset.section;
+    if (header) {
 
-        link.href = `${base}/#${section}`;
+        header.querySelectorAll("[data-section]").forEach(link => {
 
-    });
+            const section = link.dataset.section;
+
+            link.href = `${base}/#${section}`;
+
+        });
+
+    }
 
 
     // Configurar menú móvil

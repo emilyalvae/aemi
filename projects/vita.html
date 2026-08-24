@@ -162,7 +162,7 @@
 
                     <span class="text-gray-300">
 
-                        PROJECT 04
+                        PROJECT 01
 
                     </span>
 
@@ -220,9 +220,7 @@
                                leading-7
                                font-light">
 
-                        AI assistant designed to provide intelligent
-                        responses using retrieval augmented generation,
-                        semantic search and an agent-based workflow.
+                        Asistente inteligente con RAG, LangGraph y Gemini, capaz de realizar búsqueda semántica y responder consultas contextualizadas, incluyendo triaje y gestión de tickets.
 
                     </p>
 
@@ -445,7 +443,7 @@
                                        transition-all">
                             </span>
 
-                            05 — Features
+                            05 — Pipelines
 
                         </a>
 
@@ -540,63 +538,46 @@
                                    uppercase
                                    mb-7">
 
-                            Project Overview
+                            INTRODUCCIÓN
 
                         </h2>
-
-
                         <p class="text-sm
                                    text-gray-400
                                    leading-8
                                    font-light">
 
-                            Vita is an AI assistant created to
-                            provide contextual responses based on
-                            a controlled collection of documents.
-                            The system combines document retrieval,
-                            semantic search and an agent workflow
-                            to determine how each user request
-                            should be processed.
+                            Vita AI Assistant es un asistente inteligente desarrollado para una
+                            clínica ficticia llamada Clínica Vitalis. El sistema permite a los
+                            usuarios realizar consultas en lenguaje natural sobre servicios,
+                            especialidades médicas, citas, políticas y otra información
+                            institucional.
 
                         </p>
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8
+                                   font-light">
+                            El proyecto combina una arquitectura Retrieval-Augmented Generation
+                            (RAG) con LangGraph para recuperar información relevante desde
+                            documentos PDF y gestionar el flujo de atención de cada consulta.
+                            Las respuestas son generadas utilizando Google Gemini.
+                        </p>
 
-
-                        <!-- Highlight -->
-
-                        <div class="mt-10
-                                   p-6 md:p-8
-                                   rounded-3xl
-                                   border border-white/10
-                                   bg-white/[0.025]">
-
-                            <div class="text-[10px]
-                                       font-mono
-                                       text-gray-500
-                                       mb-3">
-
-                                PROJECT TYPE
-
-                            </div>
-
-                            <div class="text-lg
-                                       font-medium">
-
-                                AI Assistant · RAG · Agents
-
-                            </div>
-
+                        <!-- imagen -->
+                        <div class="mt-10 rounded-3xl overflow-hidden border border-white/10 bg-white/[0.025]">
+                            <img
+                                src="../assets/images/vita/persona.png"
+                                alt="Vita AI Assistant"
+                                class="w-full h-auto object-cover"
+                            >
                         </div>
-
                     </section>
-
-
 
                     <!-- ==============================
                          PROBLEM
                     =============================== -->
 
                     <section id="problem" class="doc-section pb-24">
-
 
                         <div class="text-[10px]
                                    font-mono
@@ -615,7 +596,7 @@
                                    uppercase
                                    mb-7">
 
-                            The Problem
+                            EL PROBLEMA
 
                         </h2>
 
@@ -624,28 +605,30 @@
                                    text-gray-400
                                    leading-8">
 
-                            Traditional question-and-answer
-                            interfaces are limited when the
-                            information required to answer a
-                            request is contained inside a
-                            collection of private documents.
+                            En un entorno de atención al paciente, acceder rápidamente a
+                            información confiable es fundamental para brindar una respuesta
+                            adecuada. Sin embargo, cuando el conocimiento se encuentra repartido
+                            entre distintos documentos, el proceso depende de que el usuario sepa
+                            dónde buscar y cómo formular exactamente su consulta.
 
                         </p>
-
-
                         <p class="text-sm
                                    text-gray-400
                                    leading-8
                                    mt-5">
 
-                            The objective was to create a system
-                            capable of retrieving relevant
-                            information and determining the
-                            appropriate action based on the
-                            user's request.
+                            Esta situación puede generar respuestas incompletas, mayor tiempo de
+                            búsqueda y una experiencia poco eficiente para quien necesita
+                            información de la clínica.
 
                         </p>
-
+                        <div class="mt-10 rounded-3xl overflow-hidden border border-white/10 bg-white/[0.025]">
+                            <img
+                                src="../assets/images/vita/problema.png"
+                                alt="Vita AI Assistant"
+                                class="w-full h-auto object-cover"
+                            >
+                        </div>
                     </section>
 
 
@@ -674,7 +657,7 @@
                                    uppercase
                                    mb-7">
 
-                            The Solution
+                            LA SOLUCIÓN
 
                         </h2>
 
@@ -682,129 +665,25 @@
                         <p class="text-sm
                                    text-gray-400
                                    leading-8">
-
-                            The solution uses a Retrieval Augmented
-                            Generation pipeline combined with
-                            LangGraph to orchestrate different
-                            processing paths.
-
+                            Se desarrolló Vita, un asistente basado en RAG que procesa la
+                            documentación institucional y utiliza búsqueda semántica para
+                            recuperar información relevante antes de generar una respuesta.
                         </p>
-
-
-                        <div class="grid
-                                   grid-cols-1
-                                   md:grid-cols-3
-                                   gap-4
-                                   mt-10">
-
-
-                            <div class="rounded-2xl
-                                       border border-white/10
-                                       bg-white/[0.025]
-                                       p-6">
-
-                                <div class="text-purple-400
-                                           font-mono
-                                           text-xs
-                                           mb-4">
-
-                                    01
-
-                                </div>
-
-                                <h3 class="font-semibold
-                                           text-sm
-                                           mb-2">
-
-                                    Retrieval
-
-                                </h3>
-
-                                <p class="text-xs
-                                           text-gray-500
-                                           leading-6">
-
-                                    Relevant information is
-                                    retrieved from the
-                                    document knowledge base.
-
-                                </p>
-
-                            </div>
-
-
-                            <div class="rounded-2xl
-                                       border border-white/10
-                                       bg-white/[0.025]
-                                       p-6">
-
-                                <div class="text-purple-400
-                                           font-mono
-                                           text-xs
-                                           mb-4">
-
-                                    02
-
-                                </div>
-
-                                <h3 class="font-semibold
-                                           text-sm
-                                           mb-2">
-
-                                    Reasoning
-
-                                </h3>
-
-                                <p class="text-xs
-                                           text-gray-500
-                                           leading-6">
-
-                                    The agent determines the
-                                    appropriate workflow.
-
-                                </p>
-
-                            </div>
-
-
-                            <div class="rounded-2xl
-                                       border border-white/10
-                                       bg-white/[0.025]
-                                       p-6">
-
-                                <div class="text-purple-400
-                                           font-mono
-                                           text-xs
-                                           mb-4">
-
-                                    03
-
-                                </div>
-
-                                <h3 class="font-semibold
-                                           text-sm
-                                           mb-2">
-
-                                    Response
-
-                                </h3>
-
-                                <p class="text-xs
-                                           text-gray-500
-                                           leading-6">
-
-                                    The system generates the
-                                    final contextual response.
-
-                                </p>
-
-                            </div>
-
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8">
+                            Además, LangGraph permite gestionar el flujo de atención mediante
+                            diferentes caminos según el tipo de consulta, incluyendo resolución
+                            automática, solicitud de información adicional y apertura de tickets.
+                        </p>
+                        <div class="mt-10 rounded-3xl overflow-hidden border border-white/10 bg-white/[0.025]">
+                            <img
+                                src="../assets/images/vita/solucion.png"
+                                alt="Vita AI Assistant"
+                                class="w-full h-auto object-cover"
+                            >
                         </div>
-
                     </section>
-
-
 
                     <!-- ==============================
                          ARCHITECTURE
@@ -830,7 +709,7 @@
                                    uppercase
                                    mb-7">
 
-                            Architecture
+                            ARQUITECTURA
 
                         </h2>
 
@@ -839,151 +718,28 @@
                                    text-gray-400
                                    leading-8">
 
-                            The application is organized into
-                            independent components responsible
-                            for document processing, retrieval,
-                            generation and workflow orchestration.
+                            La arquitectura integra la interfaz de usuario, el agente de
+                            LangGraph y el sistema RAG para procesar las consultas y generar
+                            respuestas basadas en la documentación de la clínica.
 
                         </p>
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8">
 
+                            El flujo comienza con la consulta del usuario. LangGraph realiza el
+                            triaje y determina el proceso que debe seguir, conectando con el
+                            pipeline correspondiente para resolver o derivar la solicitud.
 
-                        <!-- Architecture visual -->
-
-                        <div class="mt-10
-                                   rounded-3xl
-                                   border border-white/10
-                                   bg-[#0b0b0d]
-                                   p-6 md:p-10
-                                   overflow-x-auto">
-
-
-                            <div class="min-w-[600px]
-                                       flex items-center
-                                       justify-between
-                                       gap-5">
-
-
-                                <div class="w-32 h-20
-                                           rounded-2xl
-                                           border border-white/10
-                                           bg-white/[0.03]
-                                           flex flex-col
-                                           items-center
-                                           justify-center">
-
-                                    <i class="fa-regular
-                                               fa-file-lines
-                                               text-purple-400
-                                               mb-2">
-                                    </i>
-
-                                    <span class="text-[10px]
-                                               font-mono">
-
-                                        DOCUMENTS
-
-                                    </span>
-
-                                </div>
-
-
-                                <i class="fa-solid
-                                           fa-arrow-right
-                                           text-gray-600">
-                                </i>
-
-
-                                <div class="w-32 h-20
-                                           rounded-2xl
-                                           border border-white/10
-                                           bg-white/[0.03]
-                                           flex flex-col
-                                           items-center
-                                           justify-center">
-
-                                    <i class="fa-solid
-                                               fa-vector-square
-                                               text-purple-400
-                                               mb-2">
-                                    </i>
-
-                                    <span class="text-[10px]
-                                               font-mono">
-
-                                        EMBEDDINGS
-
-                                    </span>
-
-                                </div>
-
-
-                                <i class="fa-solid
-                                           fa-arrow-right
-                                           text-gray-600">
-                                </i>
-
-
-                                <div class="w-32 h-20
-                                           rounded-2xl
-                                           border border-white/10
-                                           bg-white/[0.03]
-                                           flex flex-col
-                                           items-center
-                                           justify-center">
-
-                                    <i class="fa-solid
-                                               fa-database
-                                               text-purple-400
-                                               mb-2">
-                                    </i>
-
-                                    <span class="text-[10px]
-                                               font-mono">
-
-                                        VECTOR STORE
-
-                                    </span>
-
-                                </div>
-
-
-                                <i class="fa-solid
-                                           fa-arrow-right
-                                           text-gray-600">
-                                </i>
-
-
-                                <div class="w-32 h-20
-                                           rounded-2xl
-                                           border border-white/10
-                                           bg-white/[0.03]
-                                           flex flex-col
-                                           items-center
-                                           justify-center">
-
-                                    <i class="fa-solid
-                                               fa-robot
-                                               text-purple-400
-                                               mb-2">
-                                    </i>
-
-                                    <span class="text-[10px]
-                                               font-mono">
-
-                                        AGENT
-
-                                    </span>
-
-                                </div>
-
-                            </div>
-
+                        </p>
+                        <div class="mt-10 rounded-3xl overflow-hidden border border-white/10 bg-white/[0.025]">
+                            <img
+                                src="../assets/images/vita/arquitectura.png"
+                                alt="Vita AI Assistant"
+                                class="w-full h-auto object-cover"
+                            >
                         </div>
-
                     </section>
-
-
-
                     <!-- ==============================
                          FEATURES
                     =============================== -->
@@ -997,7 +753,7 @@
                                    text-purple-400
                                    mb-5">
 
-                            05 / FEATURES
+                            05 / PIPELINES
 
                         </div>
 
@@ -1008,132 +764,93 @@
                                    uppercase
                                    mb-8">
 
-                            Key Features
+                            PIPELINES
 
                         </h2>
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8">
 
+                            El pipeline RAG permite que Vita consulte información específica de
+                            la clínica antes de generar una respuesta. Los documentos PDF son
+                            procesados y divididos en fragmentos, que posteriormente son
+                            transformados en embeddings y almacenados en FAISS.
+                        </p>
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8">
 
-                        <div class="space-y-3">
+                            Cuando el usuario realiza una consulta, se ejecuta una búsqueda
+                            semántica para recuperar los fragmentos más relevantes. Estos se
+                            utilizan como contexto para que Google Gemini genere una respuesta
+                            basada en la documentación disponible.
+                        </p>
 
-
-                            <div class="flex gap-5
-                                       p-5
-                                       rounded-2xl
-                                       border border-white/10
-                                       bg-white/[0.02]">
-
-                                <span class="text-purple-400
-                                           font-mono text-xs">
-
-                                    01
-
-                                </span>
-
-                                <div>
-
-                                    <h3 class="text-sm
-                                               font-medium">
-
-                                        Retrieval Augmented Generation
-
-                                    </h3>
-
-                                    <p class="text-xs
-                                               text-gray-500
-                                               mt-2
-                                               leading-6">
-
-                                        Retrieves relevant
-                                        information before
-                                        generating a response.
-
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="flex gap-5
-                                       p-5
-                                       rounded-2xl
-                                       border border-white/10
-                                       bg-white/[0.02]">
-
-                                <span class="text-purple-400
-                                           font-mono text-xs">
-
-                                    02
-
-                                </span>
-
-                                <div>
-
-                                    <h3 class="text-sm
-                                               font-medium">
-
-                                        Agent Workflow
-
-                                    </h3>
-
-                                    <p class="text-xs
-                                               text-gray-500
-                                               mt-2
-                                               leading-6">
-
-                                        LangGraph coordinates
-                                        different processing
-                                        paths.
-
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="flex gap-5
-                                       p-5
-                                       rounded-2xl
-                                       border border-white/10
-                                       bg-white/[0.02]">
-
-                                <span class="text-purple-400
-                                           font-mono text-xs">
-
-                                    03
-
-                                </span>
-
-                                <div>
-
-                                    <h3 class="text-sm
-                                               font-medium">
-
-                                        Semantic Search
-
-                                    </h3>
-
-                                    <p class="text-xs
-                                               text-gray-500
-                                               mt-2
-                                               leading-6">
-
-                                        Uses vector representations
-                                        to identify semantically
-                                        relevant information.
-
-                                    </p>
-
-                                </div>
-
-                            </div>
-
+                        <div class="mt-10 rounded-3xl overflow-hidden border border-white/10 bg-white/[0.025]">
+                            <img
+                                src="../assets/images/vita/papeline2.png"
+                                alt="Vita AI Assistant"
+                                class="w-full h-auto object-cover"
+                            >
                         </div>
+                        <!-- Agent Pipeline -->
+                        <div class="mt-16">
 
+                            <h3 class="heading-font
+                                    text-2xl md:text-3xl
+                                    font-bold
+                                    uppercase
+                                    mb-6">
+                                PIPELINE DEL AGENTE
+                            </h3>
+
+                            <p class="text-sm
+                                    text-gray-400
+                                    leading-8
+                                    mb-6">
+                                El flujo del agente es gestionado mediante LangGraph. A partir del
+                                triaje, la consulta puede dirigirse hacia diferentes procesos según
+                                su naturaleza.
+                            </p>
+
+                            <ul class="space-y-4 text-sm
+                                    text-gray-400
+                                    leading-7">
+
+                                <li class="flex gap-3">
+                                    <span class="text-purple-400 font-mono">01.</span>
+                                    <span>
+                                        <strong class="text-gray-200">Triaje:</strong>
+                                        clasifica la solicitud.
+                                    </span>
+                                </li>
+
+                                <li class="flex gap-3">
+                                    <span class="text-purple-400 font-mono">02.</span>
+                                    <span>
+                                        <strong class="text-gray-200">Auto-resolución:</strong>
+                                        utiliza RAG para responder.
+                                    </span>
+                                </li>
+
+                                <li class="flex gap-3">
+                                    <span class="text-purple-400 font-mono">03.</span>
+                                    <span>
+                                        <strong class="text-gray-200">Pedir información:</strong>
+                                        solicita datos adicionales.
+                                    </span>
+                                </li>
+
+                                <li class="flex gap-3">
+                                    <span class="text-purple-400 font-mono">04.</span>
+                                    <span>
+                                        <strong class="text-gray-200">Abrir ticket:</strong>
+                                        deriva solicitudes que requieren atención adicional.
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
                     </section>
-
-
 
                     <!-- ==============================
                          STACK
@@ -1251,8 +968,6 @@
 
                     </section>
 
-
-
                     <!-- ==============================
                          CHALLENGES
                     =============================== -->
@@ -1277,7 +992,7 @@
                                    uppercase
                                    mb-7">
 
-                            Challenges
+                            CHALLENGE FINAL
 
                         </h2>
 
@@ -1286,28 +1001,20 @@
                                    text-gray-400
                                    leading-8">
 
-                            One of the main challenges was designing
-                            the retrieval pipeline so that the
-                            generated responses remained grounded
-                            in the available documentation.
+                            Vita AI Assistant fue desarrollado como solución al Challenge Final
+                            del curso de Agentes IA de Alura, donde se aplicaron conceptos de
+                            inteligencia artificial generativa, RAG, embeddings, búsqueda
+                            semántica y agentes con LangGraph en un proyecto práctico.
 
                         </p>
-
-
-                        <p class="text-sm
-                                   text-gray-400
-                                   leading-8
-                                   mt-5">
-
-                            Another challenge involved coordinating
-                            the different agent states while
-                            maintaining a predictable workflow.
-
-                        </p>
-
+                        <div class="mt-10 rounded-3xl overflow-hidden border border-white/10 bg-white/[0.025] flex justify-center">
+                            <img
+                                src="../assets/images/vita/badge-rag-agente-ia.png"
+                                alt="Vita AI Assistant"
+                                class="max-w-full h-auto object-contain"
+                            >
+                        </div>
                     </section>
-
-
 
                     <!-- ==============================
                          RESULTS
@@ -1333,7 +1040,7 @@
                                    uppercase
                                    mb-7">
 
-                            Results
+                            RESULTADOS
 
                         </h2>
 
@@ -1342,12 +1049,27 @@
                                    text-gray-400
                                    leading-8">
 
-                            The project resulted in a modular AI
-                            assistant capable of combining
-                            document retrieval with agent-based
-                            decision making.
+                             Se obtuvo un asistente capaz de interpretar consultas en lenguaje
+                            natural, recuperar información relevante desde la documentación de
+                            la clínica y generar respuestas contextualizadas.
 
                         </p>
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8">
+
+                             La combinación de RAG y LangGraph permitió integrar recuperación de
+                            información con un flujo de decisión capaz de adaptar la atención
+                            según el tipo de solicitud.
+
+                        </p>
+                        <div class="mt-10 rounded-3xl overflow-hidden border border-white/10 bg-white/[0.025]">
+                            <img
+                                src="../assets/images/vita/pruebas.png"
+                                alt="Vita AI Assistant"
+                                class="w-full h-auto object-cover"
+                            >
+                        </div>
 
 
                         <!-- Final card -->
