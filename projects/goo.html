@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Goo Busqueda Inteligente</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                    },
+                    colors: {
+                        darkBg: '#050505',
+                        darkCard: '#111113',
+                        darkCardHover: '#18181c',
+                        borderMuted: '#222226',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 8s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-15px) rotate(3deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+
+    <style>
+        body {
+            background: #050505;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+
+
+        .heading-font {
+            font-family: 'Syne', sans-serif;
+        }
+
+
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+
+
+        ::-webkit-scrollbar-thumb {
+            background: #292929;
+            border-radius: 10px;
+        }
+
+
+        .doc-section {
+            scroll-margin-top: 120px;
+        }
+
+
+        .index-link.active {
+            color: white;
+        }
+
+
+        .index-link.active span {
+            width: 28px;
+            background: white;
+        }
+    </style>
+
+</head>
+
+
+<body class="bg-darkBg text-white antialiased">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <!-- Header / Navbar -->
+    <div id="header" data-header="../components/header.html"></div>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <main>
+
+
+        <section class="relative
+                   pt-40 pb-24
+                   px-6
+                   border-b border-white/5
+                   overflow-hidden">
+
+
+            <!-- Glow -->
+
+            <div class="absolute
+                       -top-40
+                       right-[-10%]
+                       w-[500px]
+                       h-[500px]
+                       rounded-full
+                       bg-purple-600/10
+                       blur-[120px]
+                       pointer-events-none">
+            </div>
+
+
+            <div class="max-w-7xl mx-auto">
+
+
+                <!-- Breadcrumb -->
+
+                <div class="flex items-center gap-3
+                           text-[10px]
+                           font-mono
+                           tracking-[0.15em]
+                           text-gray-500
+                           mb-10">
+
+                    <a href="proyectos.html" class="hover:text-white transition-colors">
+
+                        PROJECTS
+
+                    </a>
+
+                    <span>/</span>
+
+                    <span class="text-gray-300">
+
+                        PROJECT 02
+
+                    </span>
+
+                </div>
+
+
+
+                <div class="max-w-8xl">
+
+
+                    <!-- Category -->
+
+                    <div class="flex items-center gap-3
+                               text-purple-400
+                               text-[10px]
+                               font-mono
+                               tracking-[0.15em]
+                               mb-5">
+
+                        <span class="w-1.5 h-1.5
+                                   rounded-full
+                                   bg-purple-400
+                                   shadow-[0_0_15px_rgba(168,85,247,.8)]">
+                        </span>
+
+                        ARTIFICIAL INTELLIGENCE · BACKEND
+
+                    </div>
+
+
+
+                    <!-- Title -->
+
+                    <h1 class="heading-font text-5xl md:text-6xl font-bold uppercase tracking-tight text-white">
+
+                        GOO
+                        <br>
+
+                        <span
+                            class="heading-font
+                                   text-3xl md:text-4xl
+                                   text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-indigo-300">
+                            BACKEND Y SISTEMA DE BÚSQUEDA INTELIGENTE CON IA</span>
+
+                    </h1>
+
+
+
+                    <!-- Description -->
+
+                    <p class="mt-10
+                               max-w-2xl
+                               text-sm md:text-base
+                               text-gray-400
+                               leading-7
+                               font-light">
+
+                        Plataforma inmobiliaria con APIs REST y motor de búsqueda semántica mediante embeddings, optimizando la precisión de resultados según la intención del usuario.
+
+                    </p>
+
+
+
+                    <!-- Technologies -->
+
+                    <div class="flex flex-wrap
+                               gap-2
+                               mt-8">
+
+
+                        <span class="px-3 py-1.5
+                                   rounded-full
+                                   border border-white/10
+                                   bg-white/[0.03]
+                                   text-[10px]
+                                   font-mono
+                                   text-gray-300">
+
+                            Python
+
+                        </span>
+
+
+                        <span class="px-3 py-1.5
+                                   rounded-full
+                                   border border-white/10
+                                   bg-white/[0.03]
+                                   text-[10px]
+                                   font-mono
+                                   text-gray-300">
+
+                            Django
+
+                        </span>
+
+
+                        <span class="px-3 py-1.5
+                                   rounded-full
+                                   border border-white/10
+                                   bg-white/[0.03]
+                                   text-[10px]
+                                   font-mono
+                                   text-gray-300">
+
+                            Semantic Search
+                        </span>
+
+
+                        <span class="px-3 py-1.5
+                                   rounded-full
+                                   border border-white/10
+                                   bg-white/[0.03]
+                                   text-[10px]
+                                   font-mono
+                                   text-gray-300">
+
+                            PostgreSQL
+
+                        </span>
+
+
+                        <span class="px-3 py-1.5
+                                   rounded-full
+                                   border border-white/10
+                                   bg-white/[0.03]
+                                   text-[10px]
+                                   font-mono
+                                   text-gray-300">
+
+                            REST API
+
+                        </span>
+
+
+                        <span class="px-3 py-1.5
+                                   rounded-full
+                                   border border-white/10
+                                   bg-white/[0.03]
+                                   text-[10px]
+                                   font-mono
+                                   text-gray-300">
+
+                            OpenAI Embeddings
+
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             DOCUMENTATION
+        ====================================================== -->
+
+        <section class="px-6 py-20">
+
+
+            <div class="max-w-7xl mx-auto
+                       grid grid-cols-1
+                       lg:grid-cols-[240px_minmax(0,1fr)]
+                       gap-16">
+
+
+                <!-- =================================================
+                     INDEX
+                ================================================== -->
+
+                <aside class="lg:sticky
+                           lg:top-32
+                           lg:self-start">
+
+
+                    <div class="text-[10px]
+                               font-mono
+                               tracking-[0.15em]
+                               text-gray-500
+                               mb-6">
+
+                        DOCUMENTATION
+
+                    </div>
+
+
+                    <nav id="projectIndex" class="space-y-4">
+
+
+                        <a href="#overview" data-section="overview" class="index-link
+                                   flex items-center gap-3
+                                   text-xs
+                                   text-gray-500
+                                   hover:text-white
+                                   transition-colors">
+
+                            <span class="block
+                                       w-4 h-px
+                                       bg-gray-700
+                                       transition-all">
+                            </span>
+
+                            01 — Overview
+
+                        </a>
+
+
+                        <a href="#problem" data-section="problem" class="index-link
+                                   flex items-center gap-3
+                                   text-xs
+                                   text-gray-500
+                                   hover:text-white
+                                   transition-colors">
+
+                            <span class="block
+                                       w-4 h-px
+                                       bg-gray-700
+                                       transition-all">
+                            </span>
+
+                            02 — Exploration
+
+                        </a>
+
+
+                        <a href="#solution" data-section="solution" class="index-link
+                                   flex items-center gap-3
+                                   text-xs
+                                   text-gray-500
+                                   hover:text-white
+                                   transition-colors">
+
+                            <span class="block
+                                       w-4 h-px
+                                       bg-gray-700
+                                       transition-all">
+                            </span>
+
+                            03 — The challenge
+
+                        </a>
+
+
+                        <a href="#architecture" data-section="architecture" class="index-link
+                                   flex items-center gap-3
+                                   text-xs
+                                   text-gray-500
+                                   hover:text-white
+                                   transition-colors">
+
+                            <span class="block
+                                       w-4 h-px
+                                       bg-gray-700
+                                       transition-all">
+                            </span>
+
+                            04 — Semantic Search
+
+                        </a>
+
+
+                        <a href="#features" data-section="features" class="index-link
+                                   flex items-center gap-3
+                                   text-xs
+                                   text-gray-500
+                                   hover:text-white
+                                   transition-colors">
+
+                            <span class="block
+                                       w-4 h-px
+                                       bg-gray-700
+                                       transition-all">
+                            </span>
+
+                            05 — Architecture
+
+                        </a>
+
+
+                        <a href="#stack" data-section="stack" class="index-link
+                                   flex items-center gap-3
+                                   text-xs
+                                   text-gray-500
+                                   hover:text-white
+                                   transition-colors">
+
+                            <span class="block
+                                       w-4 h-px
+                                       bg-gray-700
+                                       transition-all">
+                            </span>
+
+                            06 — Tech Stack
+
+                        </a>
+
+                        <a href="#results" data-section="results" class="index-link
+                                   flex items-center gap-3
+                                   text-xs
+                                   text-gray-500
+                                   hover:text-white
+                                   transition-colors">
+
+                            <span class="block
+                                       w-4 h-px
+                                       bg-gray-700
+                                       transition-all">
+                            </span>
+
+                            07 — Results
+
+                        </a>
+
+
+                    </nav>
+
+                </aside>
+
+
+
+                <!-- =================================================
+                     CONTENT
+                ================================================== -->
+
+                <article class="max-w-4xl">
+
+
+                    <!-- ==============================
+                         OVERVIEW
+                    =============================== -->
+
+                    <section id="overview" class="doc-section pb-24">
+
+                        <div class="text-[10px]
+                                   font-mono
+                                   tracking-[0.15em]
+                                   text-purple-400
+                                   mb-5">
+
+                            01 / OVERVIEW
+
+                        </div>
+
+
+                        <h2 class="heading-font
+                                   text-3xl md:text-4xl
+                                   font-bold
+                                   uppercase
+                                   mb-7">
+
+                            INTRODUCCIÓN
+
+                        </h2>
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8
+                                   font-light">
+
+                            Goo App es una plataforma inmobiliaria que permite explorar propiedades mediante categorías, filtros y búsqueda
+                            inteligente.
+
+                        </p>
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8
+                                   font-light">
+                            Participé como <strong>Backend Developer</strong>, desarrollando APIs, gestión de datos e integración de un
+                            sistema de <strong>búsqueda semántica mediante embeddings</strong>.
+                        </p>
+                        <!-- imagen -->
+                        <div class="mt-10 rounded-3xl overflow-hidden border border-white/10 bg-white/[0.025]">
+                            <img
+                                src="../assets/images/goo/goo-inicio.png"
+                                alt="GOO AI"
+                                class="w-full h-auto object-cover"
+                            >
+                        </div>
+                        <div class="mt-16">
+                            <h3 class="heading-font
+                                    text-2xl md:text-3xl
+                                    font-bold
+                                    uppercase
+                                    mb-6">
+                                FUNCIONALIDADES
+                            </h3>
+
+                            <ul class="space-y-4 text-sm
+                                    text-gray-400
+                                    leading-7">
+
+                                <li class="flex gap-3">
+                                    <span class="text-purple-400 font-mono">01.</span>
+                                    <span>
+                                        Exploración y gestión de propiedades.
+                                    </span>
+                                </li>
+
+                                <li class="flex gap-3">
+                                    <span class="text-purple-400 font-mono">02.</span>
+                                    <span>
+                                        Búsquedas y filtros avanzados.
+                                    </span>
+                                </li>
+
+                                <li class="flex gap-3">
+                                    <span class="text-purple-400 font-mono">03.</span>
+                                    <span>
+                                        APIs REST.
+                                    </span>
+                                </li>
+
+                                <li class="flex gap-3">
+                                    <span class="text-purple-400 font-mono">04.</span>
+                                    <span>
+                                        Autenticación y gestión de usuarios.
+                                    </span>
+                                </li>
+
+                                <li class="flex gap-3">
+                                    <span class="text-purple-400 font-mono">05.</span>
+                                    <span>
+                                        Semantic Search con IA.
+                                    </span>
+                                </li>
+
+                                <li class="flex gap-3">
+                                    <span class="text-purple-400 font-mono">06.</span>
+                                    <span>
+                                        Generación de embeddings mediante procesos batch.
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- ==============================
+                         PROBLEM
+                    =============================== -->
+
+                    <section id="problem" class="doc-section pb-24">
+
+                        <div class="text-[10px]
+                                   font-mono
+                                   tracking-[0.15em]
+                                   text-purple-400
+                                   mb-5">
+
+                            02 / EXPLORATION
+
+                        </div>
+
+
+                        <h2 class="heading-font
+                                   text-3xl md:text-4xl
+                                   font-bold
+                                   uppercase
+                                   mb-7">
+
+                            EXPLORACIÓN DE PROPIEDADES
+
+                        </h2>
+
+
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8">
+
+                            La plataforma organiza las propiedades en categorías como <strong>Proyectos, Alquiler y Compra</strong>,
+                            permitiendo acceder rápidamente a la información disponible. 
+
+                        </p>
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8
+                                   mt-5">
+
+                            Desde el backend se desarrollaron APIs para consultar, filtrar y estructurar los datos antes de enviarlos al
+                            frontend.
+                        </p>
+                        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                            <!-- Video -->
+                            <div class="max-w-sm w-full mx-auto rounded-3xl overflow-hidden border border-white/10 bg-white/[0.025] flex justify-center">
+                                <video
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    class="w-full h-auto object-contain">
+                                    <source src="../assets/videos/goo/lista-goo.mp4" type="video/mp4">
+                                </video>
+                            </div>
+
+                            <!-- Image -->
+                            <div class="max-w-sm w-full mx-auto rounded-3xl overflow-hidden border border-white/10 bg-white/[0.025] flex justify-center">
+                                <img
+                                    src="../assets/images/goo/goo-filters.png"
+                                    alt="Filtros de propiedades de GOO"
+                                    class="max-w-full h-auto object-contain">
+                            </div>
+
+                        </div>
+                    </section>
+
+
+
+                    <!-- ==============================
+                         SOLUTION
+                    =============================== -->
+
+                    <section id="solution" class="doc-section pb-24">
+
+
+                        <div class="text-[10px]
+                                   font-mono
+                                   tracking-[0.15em]
+                                   text-purple-400
+                                   mb-5">
+
+                            03 / THE CHALLENGE
+
+                        </div>
+
+
+                        <h2 class="heading-font
+                                   text-3xl md:text-4xl
+                                   font-bold
+                                   uppercase
+                                   mb-7">
+
+                            EL RETO
+
+                        </h2>
+
+
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8">
+                            Las búsquedas tradicionales dependen de coincidencias exactas entre las palabras utilizadas por el usuario y
+                            la información almacenada.
+                            <br/>
+                            Esto limita los resultados cuando una consulta utiliza palabras diferentes para expresar una misma intención. 
+                        </p>
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8">
+                            <strong>La solución:</strong> implementar una búsqueda capaz de comprender el significado de la consulta, no
+                            solamente sus palabras.
+                        </p>
+                        <div class="mt-10 max-w-sm w-full mx-auto rounded-3xl overflow-hidden border border-white/10 bg-white/[0.025] flex justify-center">
+                            <video
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                class="w-full h-auto object-contain">
+                                <source src="../assets/videos/goo/ia-goo.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </section>
+
+                    <!-- ==============================
+                         ARCHITECTURE
+                    =============================== -->
+
+                    <section id="architecture" class="doc-section pb-24">
+
+
+                        <div class="text-[10px]
+                                   font-mono
+                                   tracking-[0.15em]
+                                   text-purple-400
+                                   mb-5">
+
+                            04 / SEMANTIC SEARCH
+
+                        </div>
+
+
+                        <h2 class="heading-font
+                                   text-3xl md:text-4xl
+                                   font-bold
+                                   uppercase
+                                   mb-7">
+
+                            BÚSQUEDA INTELIGENTE CON IA
+
+                        </h2>
+
+
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8">
+
+                            Se desarrolló un sistema de <strong>Semantic Search</strong> utilizando embeddings. 
+                            <br/>
+                            La información de las propiedades se transforma previamente en vectores mediante un proceso batch.
+                            <br/>
+                            Cuando el usuario realiza una consulta, esta también se convierte en un embedding y se compara con los
+                            existentes para encontrar las propiedades semánticamente más cercanas. 
+                        </p>
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8">
+
+                           <strong> Consulta → Embedding → Similitud semántica → Resultados relevantes </strong> 
+
+                        </p>
+                        <div class="mt-10 rounded-3xl overflow-hidden border border-white/10 bg-white/[0.025]">
+                            <img
+                                src="../assets/images/goo/diagrama.png"
+                                alt="GOO"
+                                class="w-full h-auto object-cover"
+                            >
+                        </div>
+                    </section>
+                    <!-- ==============================
+                         FEATURES
+                    =============================== -->
+
+                    <section id="features" class="doc-section pb-24">
+
+
+                        <div class="text-[10px]
+                                   font-mono
+                                   tracking-[0.15em]
+                                   text-purple-400
+                                   mb-5">
+
+                            05 / ARQUITECTURE
+
+                        </div>
+
+
+                        <h2 class="heading-font
+                                   text-3xl md:text-4xl
+                                   font-bold
+                                   uppercase
+                                   mb-8">
+
+                            ARQUITECTURA BACKEND
+
+                        </h2>
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8">
+
+                            El backend fue desarrollado con <strong>Django REST Framework</strong> y PostgreSQL, utilizando una
+                            arquitectura modular para gestionar usuarios, propiedades y búsquedas.
+                        </p>
+                        <p class="text-sm
+                                   text-gray-400
+                                   leading-8">
+
+                            La búsqueda semántica se integró directamente en la API, conectando la lógica de negocio con el procesamiento
+                            de IA.
+                        </p>
+
+                        <div class="mt-10 rounded-3xl overflow-hidden border border-white/10 bg-white/[0.025]">
+                            <img
+                                src="../assets/images/goo/back-diagram.png"
+                                alt="Vita AI Assistant"
+                                class="w-full h-auto object-cover"
+                            >
+                        </div>
+                        
+                    </section>
+
+                    <!-- ==============================
+                         STACK
+                    =============================== -->
+
+                    <section id="stack" class="doc-section pb-24">
+
+                        <div class="text-[10px]
+                                    font-mono
+                                    tracking-[0.15em]
+                                    text-purple-400
+                                    mb-5">
+
+                            06 / TECH STACK
+
+                        </div>
+
+
+                        <h2 class="heading-font
+                                text-3xl md:text-4xl
+                                font-bold
+                                uppercase
+                                mb-8">
+
+                            Technology Stack
+
+                        </h2>
+
+
+                        <div class="grid
+                                    grid-cols-2
+                                    md:grid-cols-3
+                                    gap-3">
+
+
+                            <div class="p-5 rounded-2xl border border-white/10 bg-white/[0.02]">
+
+                                <span class="text-xs text-gray-400">
+                                    Language
+                                </span>
+
+                                <div class="mt-2 font-medium">
+                                    Python
+                                </div>
+
+                            </div>
+
+
+                            <div class="p-5 rounded-2xl border border-white/10 bg-white/[0.02]">
+
+                                <span class="text-xs text-gray-400">
+                                    Framework
+                                </span>
+
+                                <div class="mt-2 font-medium">
+                                    Django
+                                </div>
+
+                            </div>
+
+
+                            <div class="p-5 rounded-2xl border border-white/10 bg-white/[0.02]">
+
+                                <span class="text-xs text-gray-400">
+                                    Search
+                                </span>
+
+                                <div class="mt-2 font-medium">
+                                    Semantic Search
+                                </div>
+
+                            </div>
+
+
+                            <div class="p-5 rounded-2xl border border-white/10 bg-white/[0.02]">
+
+                                <span class="text-xs text-gray-400">
+                                    Database
+                                </span>
+
+                                <div class="mt-2 font-medium">
+                                    PostgreSQL
+                                </div>
+
+                            </div>
+
+
+                            <div class="p-5 rounded-2xl border border-white/10 bg-white/[0.02]">
+
+                                <span class="text-xs text-gray-400">
+                                    API
+                                </span>
+
+                                <div class="mt-2 font-medium">
+                                    REST API
+                                </div>
+
+                            </div>
+
+
+                            <div class="p-5 rounded-2xl border border-white/10 bg-white/[0.02]">
+
+                                <span class="text-xs text-gray-400">
+                                    Embeddings
+                                </span>
+
+                                <div class="mt-2 font-medium">
+                                    OpenAI Embeddings
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </section>
+
+                    <!-- ==============================
+                         RESULTS
+                    =============================== -->
+
+                    <section id="results" class="doc-section pb-10">
+
+
+                        <div class="text-[10px]
+                                   font-mono
+                                   tracking-[0.15em]
+                                   text-purple-400
+                                   mb-5">
+
+                            08 / RESULTS
+
+                        </div>
+
+
+                        <h2 class="heading-font
+                                   text-3xl md:text-4xl
+                                   font-bold
+                                   uppercase
+                                   mb-7">
+
+                            RESULTADOS
+
+                        </h2>
+                        <p class=" mt-6 text-sm
+                                   text-gray-400
+                                   leading-8">
+
+                             Goo App permitió integrar desarrollo backend e inteligencia artificial dentro de una plataforma inmobiliaria
+                            real.
+                            <br/>
+                            El proyecto combinó <strong>APIs REST, PostgreSQL y Django</strong> con <strong>búsqueda semántica mediante
+                            embeddings</strong>, mejorando la forma en que los usuarios pueden encontrar propiedades según el significado
+                            de sus consultas.
+
+                        </p>
+                        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                            <!-- Buscador IA -->
+                            <div class="max-w-xs w-full mx-auto rounded-3xl overflow-hidden border border-white/10 bg-white/[0.025] flex justify-center">
+
+                                <img
+                                    src="../assets/images/goo/buscador-ia.jpg"
+                                    alt="Buscador IA de GOO"
+                                    class="max-w-full h-auto object-contain">
+
+                            </div>
+
+                            <!-- Resultados IA -->
+                            <div class="max-w-xs w-full mx-auto rounded-3xl overflow-hidden border border-white/10 bg-white/[0.025] flex justify-center">
+
+                                <img
+                                    src="../assets/images/goo/resultados-ia.jpg"
+                                    alt="Resultados de búsqueda IA de GOO"
+                                    class="max-w-full h-auto object-contain">
+
+                            </div>
+
+                        </div>
+                        <div class="mt-8">
+                            <ul class="space-y-4 text-sm
+                                    text-gray-400
+                                    leading-7">
+                                <li class="flex gap-3">
+                                    <span class="text-purple-400 font-mono">01.</span>
+                                    <span>
+                                        Búsquedas con mayor relevancia semántica.
+                                    </span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="text-purple-400 font-mono">02.</span>
+                                    <span>
+                                        Gestión estructurada de propiedades y usuarios.
+                                    </span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="text-purple-400 font-mono">03.</span>
+                                    <span>
+                                        APIs organizadas para el consumo del frontend.
+                                    </span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="text-purple-400 font-mono">04.</span>
+                                    <span>
+                                        Procesamiento optimizado de información.
+                                    </span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="text-purple-400 font-mono">05.</span>
+                                    <span>
+                                        Integración de IA dentro del backend.
+                                    </span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="text-purple-400 font-mono">06.</span>
+                                    <span>
+                                        Arquitectura preparada para futuras funcionalidades.
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="py-12 px-6 bg-black border-t border-white/10 text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <span class="text-lg font-bold text-white font-display">aemi.dev</span>
+                <span>© 2026 Emily Alva - Software Developer. All rights reserved.</span>
+            </div>
+            <div class="flex items-center space-x-6 text-gray-400">
+                <a href="https://github.com/emilyalvae" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                <a href="https://www.linkedin.com/in/emily-alva/" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
+                <a href="https://twitter.com" target="_blank" class="hover:text-white transition-colors">Twitter / X</a>
+            </div>
+        </div>
+    </footer>
+    <div
+        id="contact-modal"
+        data-modal="../components/contact-modal.html">
+    </div>
+    <script src="../js/contact-modal.js"></script>
+    <script src="../js/header.js"></script>
+
+
+    <!-- =====================================================
+         INDEX SCRIPT
+    ====================================================== -->
+
+    <script>
+
+        const sections =
+            document.querySelectorAll(".doc-section");
+
+        const links =
+            document.querySelectorAll(".index-link");
+
+
+        const observer = new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        const id =
+                            entry.target.id;
+
+
+                        links.forEach(link => {
+
+                            link.classList.remove("active");
+
+                            if (
+                                link.dataset.section === id
+                            ) {
+
+                                link.classList.add("active");
+
+                            }
+
+                        });
+
+                    }
+
+                });
+
+            },
+
+            {
+                rootMargin: "-20% 0px -65% 0px"
+            }
+
+        );
+
+
+        sections.forEach(section => {
+
+            observer.observe(section);
+
+        });
+
+
+        /*
+         * Mobile:
+         * cerrar cualquier menú si luego
+         * añadimos navegación móvil.
+         */
+
+    </script>
+
+
+</body>
+
+</html>
